@@ -1,10 +1,9 @@
 import styles from "./footer.module.css";
 
 export function Footer() {
-  const year = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <span>© {year} QLUTCH</span>
+      <span>© QLUTCH / KÏN LLC</span>
       <a
         href="https://www.instagram.com/qlutchme/"
         target="_blank"

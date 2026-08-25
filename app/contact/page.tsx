@@ -15,12 +15,6 @@ export default function ContactPage() {
         制作のご相談は下記フォームから。返信は通常 2〜3 営業日以内です。
       </p>
       <ContactForm />
-      <p className={styles.direct}>
-        直接メールの場合は{" "}
-        <a href="mailto:i@qlutch.me" className={styles.mailLink}>
-          i@qlutch.me
-        </a>
-      </p>
     </section>
   );
 }

@@ -98,17 +98,6 @@
   line-height: 1.85;
 }
 
-.direct {
-  margin-top: 16px;
-  font-size: 13px;
-  color: var(--fg-muted);
-}
-
-.mailLink {
-  color: var(--fg);
-  border-bottom: 1px solid var(--fg);
-}
-
 .honeypot {
   position: absolute;
   left: -10000px;
