@@ -10,14 +10,6 @@
   letter-spacing: 0.02em;
 }
 
-.ig {
-  transition: color 120ms ease;
-}
-
-.ig:hover {
-  color: var(--fg);
-}
-
 @media (max-width: 599px) {
   .footer {
     padding: 20px 16px 28px;
