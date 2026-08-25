@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ContactMenu } from "./contact-menu";
+import { NavLink } from "./nav-link";
 import styles from "./header.module.css";
 
 export function Header() {
@@ -17,7 +18,7 @@ export function Header() {
         />
       </Link>
       <nav className={styles.nav} aria-label="サイト内ナビゲーション">
-        <Link href="/about">ABOUT</Link>
+        <NavLink href="/about">ABOUT</NavLink>
         <ContactMenu />
       </nav>
     </header>

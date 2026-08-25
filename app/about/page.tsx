@@ -45,8 +45,6 @@ const clients =
 export default function AboutPage() {
   return (
     <article className={styles.article}>
-      <h1 className={styles.h1}>About</h1>
-
       <Budoux>
         <p className={styles.lede}>
           QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。
