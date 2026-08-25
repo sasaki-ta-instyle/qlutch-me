@@ -57,7 +57,8 @@
   display: block;
   padding: 8px 16px;
   font-size: 13px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--fg-muted);
   white-space: nowrap;
   transition: color 120ms ease, background 120ms ease;

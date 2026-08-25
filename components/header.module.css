@@ -25,7 +25,8 @@
   display: flex;
   gap: 20px;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--fg-muted);
 }
 
