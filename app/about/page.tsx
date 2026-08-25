@@ -93,7 +93,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} data-major>
         <h2 className={styles.h2}>Book</h2>
         <ul className={styles.datedList}>
           {books.map(([date, title]) => (
@@ -129,7 +129,7 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} data-major>
         <h2 className={styles.h2}>Clients and Projects</h2>
         <p className={styles.plain}>{clients}</p>
       </section>

@@ -1,10 +1,20 @@
+/*
+ * 罫線を排し、空間そのものでリズムと境界を刻む。
+ *   - lede は「導入」— 沈黙の前置き。
+ *   - Group A: Creators + 事業内容（誰か / 何を担うか = アイデンティティ）
+ *   - Group B: Book + Award + Exhibition（何をやってきたか = 実績）
+ *   - Group C: Clients + Office（誰と / どこで = 文脈）
+ *   - Group 境界 = section[data-major]、104px の呼吸。
+ *   - Group 内 = 64px、話題は続くが節が変わる。
+ *   - Section 内 (h2 → content) = 24px、宣言と本文の呼吸。
+ */
 .article {
   max-width: 720px;
   margin: 0 auto;
-  padding: clamp(24px, 6vw, 80px) var(--pad-x);
+  padding: clamp(32px, 7vw, 96px) var(--pad-x)
+    clamp(48px, 8vw, 128px);
   display: flex;
   flex-direction: column;
-  gap: 48px;
 }
 
 .h2 {
@@ -13,25 +23,31 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-muted);
-  margin: 0 0 16px;
+  margin: 0 0 24px;
 }
 
 .lede {
   font-size: 14px;
   line-height: 1.95;
   margin: 0;
+  padding-right: clamp(0px, 8vw, 96px); /* 導入は右を絞って一段深く */
 }
 
 .section {
   display: block;
+  margin-top: 64px;
+}
+
+.section[data-major] {
+  margin-top: 104px;
 }
 
 .creator {
-  margin: 0 0 28px;
+  margin: 0 0 32px;
 }
 
 .creator:last-of-type {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .role {
