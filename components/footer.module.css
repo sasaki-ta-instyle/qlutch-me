@@ -5,7 +5,7 @@
   gap: 16px;
   padding: 24px var(--pad-x) 32px;
   margin-top: auto;
-  font-size: 12px;
+  font-size: 10px;
   color: var(--fg-muted);
   letter-spacing: 0.02em;
 }
@@ -13,6 +13,6 @@
 @media (max-width: 599px) {
   .footer {
     padding: 20px 16px 28px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
