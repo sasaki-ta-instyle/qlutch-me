@@ -1,9 +1,27 @@
+/*
+ * Header: viewport 追従（position: fixed）でロゴ・nav・contact-menu をスクロール中も常時表示。
+ * mix-blend-mode: difference は blend group を作ってしまうため、header 全体ではなく
+ * 個別の要素（logo / nav a / trigger）にだけ当てる。こうすると contact-menu の panel は
+ * 通常の白背景のドロップダウンとして描画される（blend group の外に置けないので、panel は
+ * .panel 側で意図的に blend-mode を初期化する）。
+ */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 22px var(--pad-x);
+  pointer-events: none;
+}
+
+/* Header 本体はクリック透過 / 中の対話要素だけ受け取る */
+.header > * {
+  pointer-events: auto;
 }
 
 .mark {
@@ -12,13 +30,15 @@
   line-height: 0;
 }
 
-/*
- * ロゴは主張しない。アスペクト比 1240:430.6 ≒ 2.88:1。
- * height 基準 14px を基準に、大きめでも 18px 相当まで。
- */
 .logo {
   width: auto;
   height: 18px;
+  /*
+   * 元 SVG は黒。まず invert で白に、その後 difference blend で
+   * 下地に応じて自動反転（白地→黒、色地→反転色）。
+   */
+  filter: brightness(0) invert(1);
+  mix-blend-mode: difference;
 }
 
 .nav {
@@ -27,21 +47,20 @@
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--fg-muted);
 }
 
 .nav a {
-  transition: color 120ms ease;
+  color: #ffffff;
+  mix-blend-mode: difference;
+  transition: opacity 120ms ease;
 }
 
 .nav a:hover {
-  color: var(--fg);
+  opacity: 0.7;
 }
 
-/* 現在ページの nav item を bold + fg */
 .nav a[aria-current="page"] {
   font-weight: 700;
-  color: var(--fg);
 }
 
 @media (max-width: 599px) {

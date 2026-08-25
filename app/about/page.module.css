@@ -11,8 +11,9 @@
 .article {
   max-width: 720px;
   margin: 0 auto;
-  padding: clamp(32px, 7vw, 96px) var(--pad-x)
-    clamp(48px, 8vw, 128px);
+  /* 固定 header / footer を避けつつ、余白でリズムを作る。 */
+  padding: calc(var(--header-h) + clamp(32px, 6vw, 72px)) var(--pad-x)
+    calc(var(--footer-h) + clamp(32px, 5vw, 64px));
   display: flex;
   flex-direction: column;
 }

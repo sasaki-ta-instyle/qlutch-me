@@ -4,20 +4,18 @@
  */
 .grid {
   list-style: none;
-  padding: 0 var(--pad-x) var(--pad-y);
+  padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(6px, 0.6vw, 16px);
-  max-width: 1920px;
-  margin-inline: auto;
+  gap: 0;
 }
 
 .item {
   position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #f2f2f2;
+  background: #e6e6e6;
 }
 
 .link {
@@ -36,7 +34,8 @@
 }
 
 .empty {
-  padding: 40px var(--pad-x) var(--pad-y);
+  padding: calc(var(--header-h) + 40px) var(--pad-x)
+    calc(var(--footer-h) + var(--pad-y));
   color: var(--fg-muted);
   font-size: 13px;
 }

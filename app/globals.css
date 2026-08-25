@@ -14,6 +14,10 @@
   --pad-x: clamp(16px, 3.2vw, 40px);
   --pad-y: clamp(24px, 4vw, 56px);
 
+  /* fixed header / footer の実効高（padding + 中身のおおよそ） */
+  --header-h: 62px;
+  --footer-h: 46px;
+
   /* type — QLUTCH ブランド書体スタック（Helvetica Neue 起点、和文フォールバック多段） */
   --font-sans: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic,
     "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
@@ -46,8 +50,13 @@ html {
 
 body {
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
+}
+
+@media (max-width: 599px) {
+  :root {
+    --header-h: 46px;
+    --footer-h: 44px;
+  }
 }
 
 img,

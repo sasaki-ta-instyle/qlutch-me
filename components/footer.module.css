@@ -1,18 +1,30 @@
+/*
+ * Footer: viewport 追従（position: fixed）。individual text に mix-blend-mode: difference で
+ * どんな下地でもコントラストを自動確保。
+ */
 .footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 24px var(--pad-x) 32px;
-  margin-top: auto;
+  padding: 18px var(--pad-x);
+  pointer-events: none;
+}
+
+.footer > span {
+  color: #ffffff;
+  mix-blend-mode: difference;
   font-size: 10px;
-  color: var(--fg-muted);
   letter-spacing: 0.02em;
 }
 
 @media (max-width: 599px) {
   .footer {
-    padding: 20px 16px 28px;
-    font-size: 10px;
+    padding: 16px 16px;
   }
 }
