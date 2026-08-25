@@ -1,0 +1,123 @@
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(24px, 6vw, 80px) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.lede {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.95;
+  margin: 0;
+}
+
+.section {
+  display: block;
+}
+
+.creator {
+  margin: 0 0 28px;
+}
+
+.creator:last-of-type {
+  margin-bottom: 8px;
+}
+
+.role {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin: 0 0 4px;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.romaji {
+  margin-left: 8px;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--fg-muted);
+  letter-spacing: 0.06em;
+}
+
+.bio {
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.credit {
+  font-size: 11px;
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.plain {
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+.datedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.datedList li {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.date {
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  color: var(--fg);
+}
+
+@media (max-width: 599px) {
+  .datedList li {
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+  }
+  .h1 {
+    font-size: 24px;
+  }
+}

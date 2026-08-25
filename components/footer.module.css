@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px var(--pad-x) 32px;
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+}
+
+.ig {
+  transition: color 120ms ease;
+}
+
+.ig:hover {
+  color: var(--fg);
+}
+
+@media (max-width: 599px) {
+  .footer {
+    padding: 20px 16px 28px;
+    font-size: 11px;
+  }
+}

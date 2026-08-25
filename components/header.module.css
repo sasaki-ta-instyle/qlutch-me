@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px var(--pad-x);
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+/*
+ * ロゴは主張しない。アスペクト比 1240:430.6 ≒ 2.88:1。
+ * height 基準 14px を基準に、大きめでも 18px 相当まで。
+ */
+.logo {
+  width: auto;
+  height: 18px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+}
+
+.nav a {
+  transition: color 120ms ease;
+}
+
+.nav a:hover {
+  color: var(--fg);
+}
+
+@media (max-width: 599px) {
+  .header {
+    padding: 16px 16px;
+  }
+  .logo {
+    height: 14px;
+  }
+  .nav {
+    gap: 14px;
+    font-size: 12px;
+  }
+}

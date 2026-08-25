@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# qlutch-me
 
-## Getting Started
+QLUTCH のブランドサイト。Next.js 16 App Router + Vercel + Instagram Graph API。
 
-First, run the development server:
+## ページ構成
+
+- `/` — Instagram @qlutchme の 2025 年以降の投稿タイル（カルーセルは 1 枚ずつ展開、動画は除外、1 時間 ISR）
+- `/about` — About
+- `/contact` — Contact フォーム（Resend 経由）
+
+## セットアップ
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local  # 環境変数を埋める
+pnpm dev                    # http://localhost:3000
+pnpm build                  # 本番ビルド
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 環境変数
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| 変数 | 用途 |
+|---|---|
+| `IG_LONG_LIVED_TOKEN` | Instagram Graph API 60 日長期トークン |
+| `IG_USER_ID` | Instagram Business アカウントの user id |
+| `RESEND_API_KEY` | Contact フォーム送信用（Resend） |
+| `CONTACT_TO_EMAIL` | 問い合わせ受信先 |
+| `CONTACT_FROM_EMAIL` | 送信元（instyle.group ドメインは Resend 認証済み） |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instagram Graph API のトークン発行
 
-## Learn More
+Sprint 0 の準備:
 
-To learn more about Next.js, take a look at the following resources:
+1. developers.facebook.com で App を作成（Type: Business）
+2. Instagram Graph API を有効化
+3. @qlutchme（Business アカウント）と Facebook Page を紐付ける
+4. Graph API Explorer で `instagram_basic` / `instagram_manage_insights` / `pages_show_list` の権限を取得
+5. 短期トークンを長期トークン（60 日）に交換して `.env.local` / Vercel 環境変数に入れる
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 責務分担
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `lib/instagram.ts` — Graph API 呼び出しとカルーセル展開・動画除外・2025 以降フィルタ・降順ソート
+- `components/tile-grid.tsx` — タイル描画（1:1 正方形、CSS Grid、レスポンシブ列数）
+- `app/actions/send-contact.ts` — Resend 経由の Contact 送信
+- `components/budoux.tsx` — 日本語段落の意味区切り改行
 
-## Deploy on Vercel
+## デプロイ
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vercel `sasaki-ta-instyle/qlutch-me`。canonical alias は `https://qlutch-me.vercel.app/`。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel --prod --scope sasaki-ta-instyle --yes
+```
+
+DNS 切替は Sprint 1 完了後に `qlutch.me` / `www.qlutch.me` を Vercel に向ける。
+
+## 骨子で入れていないもの（Sprint 2 以降）
+
+- トークン自動リフレッシュ（Vercel Cron + KV）
+- `load more` 追加読み込み
+- 画像 LQIP / blur プレースホルダ
+- 動的 OGP 画像
+- 旧 WP パーマリンク → 新 URL の 301 マップ
+- 独自ブランド書体（font-pick Skill 経由で決定予定）
+- ロゴアセット（現状は "QLUTCH" ワードマーク仮）

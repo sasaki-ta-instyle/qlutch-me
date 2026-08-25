@@ -1,40 +1,60 @@
+/*
+ * qlutch.me — global styles
+ * ミニマム: 白ベース、罫線ほぼ無し、投稿の色でサイトが色付く前提。
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* palette — 骨子。ブランドカラーは後で微調整 */
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --fg-muted: #6b6b6b;
+  --hair: rgba(10, 10, 10, 0.08);
+
+  /* spacing */
+  --pad-x: clamp(16px, 3.2vw, 40px);
+  --pad-y: clamp(24px, 4vw, 56px);
+
+  /* type — QLUTCH ブランド書体スタック（Helvetica Neue 起点、和文フォールバック多段） */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic,
+    "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  min-height: 100%;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
@@ -42,8 +62,18 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* BudouX で挿入された <wbr> 位置以外では改行しない */
+.budoux {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-break: strict;
 }

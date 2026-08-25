@@ -32,9 +32,13 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# Claude Code の Stop hook が吐く会話ログ（プロジェクト外に出せないため .gitignore で除外）
+/_conversation-logs/
 
 # typescript
 *.tsbuildinfo
