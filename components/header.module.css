@@ -24,7 +24,7 @@
 .nav {
   display: flex;
   gap: 20px;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-muted);
@@ -47,6 +47,6 @@
   }
   .nav {
     gap: 14px;
-    font-size: 12px;
+    font-size: 13px;
   }
 }

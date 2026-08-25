@@ -44,7 +44,7 @@ export function ContactMenu() {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        Contact
+        CONTACT
       </button>
       <div
         className={styles.panel}
@@ -58,7 +58,7 @@ export function ContactMenu() {
           role="menuitem"
           tabIndex={open ? 0 : -1}
         >
-          Mail
+          MAIL
         </a>
         <a
           href="https://ig.me/m/qlutchme"
@@ -68,7 +68,7 @@ export function ContactMenu() {
           role="menuitem"
           tabIndex={open ? 0 : -1}
         >
-          Instagram
+          INSTAGRAM
         </a>
       </div>
     </div>

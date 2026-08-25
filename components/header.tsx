@@ -17,7 +17,7 @@ export function Header() {
         />
       </Link>
       <nav className={styles.nav} aria-label="サイト内ナビゲーション">
-        <Link href="/about">About</Link>
+        <Link href="/about">ABOUT</Link>
         <ContactMenu />
       </nav>
     </header>
