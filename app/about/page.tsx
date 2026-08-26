@@ -29,16 +29,17 @@ const books: Row[] = [
 const awards: Row[] = [["2016.6", "カンヌライオンズ 2016 PR Bronze"]];
 
 const exhibitions: Row[] = [
-  ["2026.1", "「クリエイター 100 人からの年賀状」展 vol.21 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20260122.html"],
-  ["2025.1", "「クリエイター 100 人からの年賀状」展 vol.20 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20250124.html"],
-  ["2024.1", "「クリエイター 100 人からの年賀状」展 vol.19 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20240124.html"],
-  ["2023.1", "「クリエイター 100 人からの年賀状」展 vol.18 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20230123.html"],
-  ["2022.1", "「クリエイター 100 人からの年賀状」展 vol.17 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20220120.html"],
-  ["2021.1", "「クリエイター 100 人からの年賀状」展 vol.16 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20210122.html"],
+  ["2026.1", "「クリエイター 100 人からの年賀状」展 vol.21 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20260122/"],
+  ["2025.1", "「クリエイター 100 人からの年賀状」展 vol.20 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20250124/"],
+  ["2024.1", "「クリエイター 100 人からの年賀状」展 vol.19 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20240124/"],
+  ["2023.1", "「クリエイター 100 人からの年賀状」展 vol.18 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20230123/"],
+  ["2022.1", "「クリエイター 100 人からの年賀状」展 vol.17 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20220120/"],
+  ["2021.1", "「クリエイター 100 人からの年賀状」展 vol.16 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20210122/"],
+  ["2021.1", "THE _ _ _ MAGAZINE EXHIBITION ／ zakura"],
   ["2020.6", "「Fine paper, Fine work 展」vol.06 ／ 竹尾青山見本帖", "https://www.takeo.co.jp/news/detail/003093.html"],
-  ["2020.1", "「クリエイター 100 人からの年賀状」展 vol.15 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20200128.html"],
-  ["2019.1", "「クリエイター 100 人からの年賀状」展 vol.14 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20190123.html"],
-  ["2018.1", "「クリエイター 100 人からの年賀状」展 vol.13 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20180126.html"],
+  ["2020.1", "「クリエイター 100 人からの年賀状」展 vol.15 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20200128/"],
+  ["2019.1", "「クリエイター 100 人からの年賀状」展 vol.14 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20190123/"],
+  ["2018.1", "「クリエイター 100 人からの年賀状」展 vol.13 ／ 竹尾見本帖本店", "https://takeopaper.com/finder/exhibition/20180126/"],
 ];
 
 const clients =
