@@ -72,7 +72,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  /* 上に padding を寄せてコンテンツをちょい下寄りにセンター */
+  padding: 6vh 0 0 0;
   background: rgba(0, 0, 0, 0.86);
   animation: fadeIn 180ms ease;
 }
@@ -89,15 +90,16 @@
   align-items: center;
   gap: 12px;
   max-width: 100vw;
-  max-height: 100vh;
+  /* overlay 上寄せ padding 6vh を差し引き */
+  max-height: calc(100vh - 6vh);
   padding: 8px 8px 12px;
   cursor: zoom-out;
 }
 
 .modalImage {
   max-width: 100vw;
-  /* 縦は残り全部使う (gap + hint 分だけ差し引き)。ワイド画角なら横で picked out。 */
-  max-height: calc(100vh - 44px);
+  /* 縦は残り全部 (gap + hint + overlay padding-top を差し引き)。ワイド画角は横で picked out。 */
+  max-height: calc(100vh - 44px - 6vh);
   width: auto;
   height: auto;
   object-fit: contain;
