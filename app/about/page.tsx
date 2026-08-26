@@ -100,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>事業内容</h2>
+        <h2 className={styles.h2}>Core Services</h2>
         <p className={styles.plain}>
           ヴィジュアル制作 ／ プロダクション業務 ／ デザイン制作 ／ スタイリング ／ ブランディング
         </p>
