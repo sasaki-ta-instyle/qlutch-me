@@ -104,6 +104,39 @@
   display: block;
 }
 
+/*
+ * モーダル左上の「← Back」閉じるボタン。hint と同じ級数・トーン。
+ */
+.modalBack {
+  position: absolute;
+  top: clamp(12px, 2vw, 24px);
+  left: clamp(12px, 2vw, 24px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+@media (hover: hover) {
+  .modalBack:hover {
+    color: #ffffff;
+  }
+}
+
+.modalBack:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
+
 .modalFallback {
   color: rgba(255, 255, 255, 0.85);
   font-size: 14px;

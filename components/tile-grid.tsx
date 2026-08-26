@@ -138,6 +138,40 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
       onKeyDown={onKeyDown}
       tabIndex={-1}
     >
+      <button
+        type="button"
+        className={styles.modalBack}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        aria-label="閉じる"
+      >
+        <svg
+          className={styles.modalHintIcon}
+          viewBox="0 0 12 12"
+          aria-hidden
+          focusable="false"
+        >
+          {/* ← 左矢印 (横線 + 山) */}
+          <path
+            d="M10 6H2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="square"
+          />
+          <path
+            d="M5 3L2 6l3 3"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+        </svg>
+        Back
+      </button>
       <div className={styles.modalContent}>
         {failed ? (
           <div className={styles.modalFallback}>
