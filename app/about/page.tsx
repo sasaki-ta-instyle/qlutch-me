@@ -69,7 +69,9 @@ export default function AboutPage() {
           </p>
           <Budoux>
             <p className={styles.bio}>
-              横浜生まれ。文化服装学院情報科卒。雑誌社編集部、国内外ブランド PR、
+              横浜生まれ。文化服装学院情報科卒。
+              <br />
+              雑誌社編集部、国内外ブランド PR、
               <br />
               アーティストマネージメントおよびプロダクション業を経て、 渡英。
               <br />
@@ -87,7 +89,9 @@ export default function AboutPage() {
           </p>
           <Budoux>
             <p className={styles.bio}>
-              東京生まれ。東京藝術大学日本画専攻卒業。都内デザイン会社勤務後、渡英。
+              東京生まれ。東京藝術大学日本画専攻卒業。
+              <br />
+              都内デザイン会社勤務後、渡英。
               <br />
               帰国後、2013年にQLUTCHを設立。
               <br />
