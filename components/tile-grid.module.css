@@ -107,6 +107,59 @@
 }
 
 /*
+ * モーダル左右の画像送りボタン (Prev / Next)。ビューポート左右端、垂直中央に固定。
+ * 24px chevron、白 50% → hover / focus で白へ。stopPropagation で背景 close を吸わない。
+ */
+.modalNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px 12px;
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: color 160ms ease;
+  z-index: 5;
+}
+
+.modalNavPrev {
+  left: clamp(4px, 1.2vw, 20px);
+}
+
+.modalNavNext {
+  right: clamp(4px, 1.2vw, 20px);
+}
+
+@media (hover: hover) {
+  .modalNav:hover {
+    color: #ffffff;
+  }
+}
+
+.modalNav:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+  color: #ffffff;
+}
+
+.modalNavIcon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+@media (max-width: 599px) {
+  .modalNav {
+    padding: 12px 8px;
+  }
+  .modalNavIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/*
  * モーダル左上の「← Back」閉じるボタン。hint と同じ級数・トーン。
  */
 .modalBack {

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import {
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -12,21 +13,35 @@ import type { IgTile } from "@/lib/instagram";
 import styles from "./tile-grid.module.css";
 
 export function TileGrid({ tiles }: { tiles: IgTile[] }) {
-  const [selected, setSelected] = useState<IgTile | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [failedIds, setFailedIds] = useState<Set<string>>(new Set());
   // モーダルを開いたトリガーボタン参照（閉じたときにフォーカスを戻す）
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 
-  const openModal = (tile: IgTile, e: React.MouseEvent<HTMLButtonElement>) => {
+  const openModal = (
+    tile: IgTile,
+    e: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    const idx = tiles.findIndex((t) => t.id === tile.id);
+    if (idx < 0) return;
     triggerRef.current = e.currentTarget;
-    setSelected(tile);
+    setSelectedIndex(idx);
   };
 
-  const closeModal = () => {
-    setSelected(null);
-    // フォーカスをトリガーへ戻す（次 tick で React が modal を unmount してから）
+  const closeModal = useCallback(() => {
+    setSelectedIndex(null);
     requestAnimationFrame(() => triggerRef.current?.focus());
-  };
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setSelectedIndex((i) =>
+      i === null ? null : (i - 1 + tiles.length) % tiles.length,
+    );
+  }, [tiles.length]);
+
+  const goNext = useCallback(() => {
+    setSelectedIndex((i) => (i === null ? null : (i + 1) % tiles.length));
+  }, [tiles.length]);
 
   const handleImgError = (id: string) => {
     setFailedIds((prev) => {
@@ -39,7 +54,7 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
 
   // モーダル表示中の body スクロールロック (iOS Safari 対応: position: fixed 方式)
   useEffect(() => {
-    if (!selected) return;
+    if (selectedIndex === null) return;
     const scrollY = window.scrollY;
     const body = document.body;
     const prev = {
@@ -59,9 +74,11 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
       body.style.overflow = prev.overflow;
       window.scrollTo(0, scrollY);
     };
-  }, [selected]);
+  }, [selectedIndex]);
 
   const visibleTiles = tiles.filter((t) => !failedIds.has(t.id));
+  const selectedTile =
+    selectedIndex !== null ? tiles[selectedIndex] ?? null : null;
 
   if (tiles.length === 0) {
     return (
@@ -96,23 +113,43 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
         ))}
       </ul>
 
-      {selected && <Modal tile={selected} onClose={closeModal} />}
+      {selectedTile && (
+        <Modal
+          tile={selectedTile}
+          onClose={closeModal}
+          onPrev={goPrev}
+          onNext={goNext}
+        />
+      )}
     </>
   );
 }
 
-function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
+function Modal({
+  tile,
+  onClose,
+  onPrev,
+  onNext,
+}: {
+  tile: IgTile;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
   const hintRef = useRef<HTMLAnchorElement | null>(null);
   const [failed, setFailed] = useState(false);
 
-  // 開いたらヒントリンクに初期フォーカスを置く。Tab が背景タイルへ抜けないように
-  // 単一 focusable なので blur したら即座に戻すという最小 focus trap にする。
+  // タイル切り替え時に failed をリセット
+  useEffect(() => {
+    setFailed(false);
+  }, [tile.id]);
+
+  // 開いたらヒントリンクに初期フォーカスを置く
   useEffect(() => {
     hintRef.current?.focus();
   }, []);
 
   const onFocusOut = (e: SyntheticEvent) => {
-    // relatedTarget が modal 内でない場合、hint に戻す
     const evt = e as unknown as { relatedTarget: Node | null };
     if (!evt.relatedTarget || !e.currentTarget.contains(evt.relatedTarget)) {
       requestAnimationFrame(() => hintRef.current?.focus());
@@ -120,10 +157,15 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
   };
 
   const onKeyDown = (e: ReactKeyboardEvent<HTMLDivElement>) => {
-    // Tab / Shift+Tab は hint に戻す（focusable が 1 個なので実質固定）
     if (e.key === "Tab") {
       e.preventDefault();
       hintRef.current?.focus();
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      onPrev();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      onNext();
     }
   };
 
@@ -153,7 +195,6 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
           aria-hidden
           focusable="false"
         >
-          {/* ← 左矢印 (横線 + 山) */}
           <path
             d="M10 6H2"
             fill="none"
@@ -172,6 +213,34 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
         </svg>
         Back
       </button>
+
+      {/* 左送り (Prev) — 画像の左サイド */}
+      <button
+        type="button"
+        className={`${styles.modalNav} ${styles.modalNavPrev}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrev();
+        }}
+        aria-label="前の投稿"
+      >
+        <svg
+          className={styles.modalNavIcon}
+          viewBox="0 0 24 24"
+          aria-hidden
+          focusable="false"
+        >
+          <path
+            d="M15 5l-7 7 7 7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+        </svg>
+      </button>
+
       <div className={styles.modalContent}>
         {failed ? (
           <div className={styles.modalFallback}>
@@ -205,7 +274,6 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
             aria-hidden
             focusable="false"
           >
-            {/* 外部リンクを示す ↗ 矢印 (角の直角 + 対角線) */}
             <path
               d="M4 3h5v5"
               fill="none"
@@ -223,6 +291,33 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
           </svg>
         </a>
       </div>
+
+      {/* 右送り (Next) — 画像の右サイド */}
+      <button
+        type="button"
+        className={`${styles.modalNav} ${styles.modalNavNext}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          onNext();
+        }}
+        aria-label="次の投稿"
+      >
+        <svg
+          className={styles.modalNavIcon}
+          viewBox="0 0 24 24"
+          aria-hidden
+          focusable="false"
+        >
+          <path
+            d="M9 5l7 7-7 7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+        </svg>
+      </button>
     </div>
   );
 }
