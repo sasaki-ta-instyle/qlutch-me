@@ -1,9 +1,13 @@
 .wrap {
   position: fixed;
+  /*
+   * 数学的センター (50%) は目には下がって見えるため 4vh 分持ち上げて光学的センターに寄せる。
+   * ワードマーク横長で視覚重心が上寄りにあるため、少しの nudge で "落ち着き感" が出る。
+   */
   top: 50%;
   left: 0;
   right: 0;
-  transform: translateY(-50%);
+  transform: translateY(calc(-50% - 4vh));
   z-index: 15;
   display: flex;
   justify-content: center;
