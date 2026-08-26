@@ -17,9 +17,15 @@
   pointer-events: none;
 }
 
-.footer > span,
-.footer > a {
+.footer > span {
   font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+.footer > a {
+  font-size: 14px;
   letter-spacing: 0.08em;
   color: #ffffff;
   mix-blend-mode: difference;
@@ -49,8 +55,8 @@
 }
 
 .topIcon {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   display: block;
   flex: none;
 }
