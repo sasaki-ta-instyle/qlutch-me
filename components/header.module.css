@@ -61,6 +61,7 @@
 @media (hover: hover) {
   .topLink:hover {
     color: var(--fg);
+    opacity: 0.5;
   }
 }
 
@@ -96,6 +97,10 @@
   .nav a:hover {
     color: var(--fg);
     mix-blend-mode: normal;
+  }
+  /* About (白背景) では本文の inlineLink と同じ opacity 0.5 の hover */
+  .header[data-on-white] .nav a:hover {
+    opacity: 0.5;
   }
 }
 

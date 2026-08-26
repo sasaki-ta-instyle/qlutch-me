@@ -27,7 +27,6 @@
 }
 
 .trigger[aria-expanded="true"] {
-  font-weight: 700;
   color: var(--fg);
   mix-blend-mode: normal;
 }
@@ -36,6 +35,10 @@
   .trigger:hover {
     color: var(--fg);
     mix-blend-mode: normal;
+  }
+  /* About (白背景) では本文の inlineLink と同じ opacity 0.5 の hover */
+  .wrap[data-on-white] .trigger:hover {
+    opacity: 0.5;
   }
 }
 
@@ -105,7 +108,6 @@
 }
 
 .item:focus-visible {
-  font-weight: 700;
   color: var(--fg);
   mix-blend-mode: normal;
   outline: none;
