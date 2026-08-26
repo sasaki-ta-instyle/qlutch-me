@@ -1,0 +1,19 @@
+.wrap {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.img {
+  /* 幅いっぱい。SVG のアスペクト比 1240:430.6 ≒ 2.88:1 で高さ自動。 */
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+  mix-blend-mode: difference;
+}

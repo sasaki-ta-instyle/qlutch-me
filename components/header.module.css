@@ -1,9 +1,8 @@
 /*
- * Header: viewport 追従（position: fixed）でロゴ・nav・contact-menu をスクロール中も常時表示。
- * mix-blend-mode: difference は blend group を作ってしまうため、header 全体ではなく
- * 個別の要素（logo / nav a / trigger）にだけ当てる。こうすると contact-menu の panel は
- * 通常の白背景のドロップダウンとして描画される（blend group の外に置けないので、panel は
- * .panel 側で意図的に blend-mode を初期化する）。
+ * Header: viewport 追従（position: fixed）で nav / contact-menu をスクロール中も常時表示。
+ * ブランドロゴは LogoMark として画面中央に固定表示するため、ここには置かない。
+ * mix-blend-mode: difference は個別の nav a / trigger にだけ当てる（blend group の
+ * 副作用を contact-menu の panel に波及させないため）。
  */
 .header {
   position: fixed;
@@ -13,7 +12,7 @@
   z-index: 20;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 24px;
   padding: 22px var(--pad-x);
   pointer-events: none;
@@ -22,23 +21,6 @@
 /* Header 本体はクリック透過 / 中の対話要素だけ受け取る */
 .header > * {
   pointer-events: auto;
-}
-
-.mark {
-  display: inline-flex;
-  align-items: center;
-  line-height: 0;
-}
-
-.logo {
-  width: auto;
-  height: 18px;
-  /*
-   * 元 SVG は黒。まず invert で白に、その後 difference blend で
-   * 下地に応じて自動反転（白地→黒、色地→反転色）。
-   */
-  filter: brightness(0) invert(1);
-  mix-blend-mode: difference;
 }
 
 .nav {
@@ -66,9 +48,6 @@
 @media (max-width: 599px) {
   .header {
     padding: 16px 16px;
-  }
-  .logo {
-    height: 14px;
   }
   .nav {
     gap: 14px;
