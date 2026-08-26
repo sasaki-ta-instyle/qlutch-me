@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(32px, 6vw, 80px);
+  padding: clamp(16px, 3vw, 40px);
   background: rgba(0, 0, 0, 0.86);
   animation: fadeIn 180ms ease;
 }
@@ -85,15 +85,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  max-width: min(80vw, 900px);
-  max-height: 86vh;
+  gap: 18px;
+  max-width: min(94vw, 1400px);
+  max-height: 94vh;
   cursor: zoom-out;
 }
 
 .modalImage {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 88vh;
   width: auto;
   height: auto;
   object-fit: contain;
