@@ -61,7 +61,8 @@
 @media (hover: hover) {
   .topLink:hover {
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.3);
+    /* About は白背景 → hover は素の黒 (bold のみで強調) */
+    color: var(--fg);
   }
 }
 
@@ -96,7 +97,11 @@
 @media (hover: hover) {
   .nav a:hover {
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.3);
+    /*
+     * 透けない solid gray (旧 rgba(0,0,0,0.3) の白背景上の見た目と同色 #b3b3b3)
+     * mix-blend を切ってタイル上でも同じ solid gray に見せる。
+     */
+    color: #b3b3b3;
     mix-blend-mode: normal;
   }
 }

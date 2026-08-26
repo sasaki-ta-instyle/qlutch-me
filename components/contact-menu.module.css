@@ -28,14 +28,14 @@
 
 .trigger[aria-expanded="true"] {
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.3);
+  color: #b3b3b3;
   mix-blend-mode: normal;
 }
 
 @media (hover: hover) {
   .trigger:hover {
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.3);
+    color: #b3b3b3;
     mix-blend-mode: normal;
   }
 }
@@ -107,7 +107,7 @@
 
 .item:focus-visible {
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.3);
+  color: #b3b3b3;
   mix-blend-mode: normal;
   outline: none;
 }
@@ -115,7 +115,7 @@
 @media (hover: hover) {
   .item:hover {
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.3);
+    color: #b3b3b3;
     mix-blend-mode: normal;
   }
 }

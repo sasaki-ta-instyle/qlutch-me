@@ -51,7 +51,7 @@
 @media (hover: hover) {
   .footer > a:hover {
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.3);
+    color: #b3b3b3;
     mix-blend-mode: normal;
   }
 }
