@@ -10,12 +10,20 @@
  * ホバー: bold + 30% 黒（灰色見え）で軽くフェード。
  */
 .trigger {
+  position: relative;
   font: inherit;
   padding: 0;
   color: #ffffff;
   mix-blend-mode: difference;
   transition: color 120ms ease;
   cursor: pointer;
+}
+
+/* 見えないヒットゾーン (誤クリック対策) */
+.trigger::before {
+  content: "";
+  position: absolute;
+  inset: -10px -12px;
 }
 
 .trigger:hover,
@@ -65,6 +73,7 @@
 }
 
 .item {
+  position: relative;
   display: block;
   padding: 6px 0;
   font-size: 14px;
@@ -75,6 +84,13 @@
   text-align: right;
   white-space: nowrap;
   transition: color 120ms ease;
+}
+
+/* 見えないヒットゾーン (誤クリック対策) */
+.item::before {
+  content: "";
+  position: absolute;
+  inset: 0 -12px;
 }
 
 .wrap[data-on-white] .item {

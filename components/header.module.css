@@ -32,9 +32,17 @@
 }
 
 .nav a {
+  position: relative;
   color: #ffffff;
   mix-blend-mode: difference;
   transition: color 120ms ease;
+}
+
+/* 見えないヒットゾーンを 10px 上下 / 12px 左右に拡張 (誤クリック対策) */
+.nav a::before {
+  content: "";
+  position: absolute;
+  inset: -10px -12px;
 }
 
 .nav a:hover {

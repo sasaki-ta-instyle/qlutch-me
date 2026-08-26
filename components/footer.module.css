@@ -26,12 +26,20 @@
 }
 
 .footer > a {
+  position: relative;
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   text-transform: uppercase;
   transition: color 120ms ease;
+}
+
+/* 見えないヒットゾーン (誤クリック対策) */
+.footer > a::before {
+  content: "";
+  position: absolute;
+  inset: -10px -12px;
 }
 
 .footer > a:hover {
