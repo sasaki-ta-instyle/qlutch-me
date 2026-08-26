@@ -63,11 +63,6 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
 }
 
 function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
-  const openOnInstagram = () => {
-    window.open(tile.permalink, "_blank", "noopener,noreferrer");
-    onClose();
-  };
-
   return (
     <div
       className={styles.overlay}
@@ -76,18 +71,24 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
       aria-label="投稿プレビュー"
       onClick={onClose}
     >
-      <button
-        type="button"
-        className={styles.modalImageBtn}
-        onClick={(e) => {
-          e.stopPropagation();
-          openOnInstagram();
-        }}
-        aria-label="Instagram で開く"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+      <div className={styles.modalContent}>
+        {/*
+         * 画像は「閉じる」当たり判定の一部。オーバーレイの onClick に任せるので
+         * ここでは何もしない（そのままバブリング）。
+         * eslint-disable-next-line @next/next/no-img-element
+         */}
         <img src={tile.mediaUrl} alt="" className={styles.modalImage} />
-        <span className={styles.modalHint}>
+        <a
+          href={tile.permalink}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={styles.modalHint}
+          onClick={(e) => {
+            // ヒントだけ「開く」— オーバーレイの close にはバブリングさせない
+            e.stopPropagation();
+            onClose();
+          }}
+        >
           <svg
             className={styles.modalHintIcon}
             viewBox="0 0 12 12"
@@ -111,16 +112,8 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
             />
           </svg>
           Click to open on Instagram
-        </span>
-      </button>
-      <button
-        type="button"
-        className={styles.modalClose}
-        onClick={onClose}
-        aria-label="閉じる"
-      >
-        ×
-      </button>
+        </a>
+      </div>
     </div>
   );
 }
