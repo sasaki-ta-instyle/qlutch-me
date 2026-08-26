@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -58,6 +59,13 @@ export default function AboutPage() {
           <p className={styles.name}>
             戎田 夏菜 <span className={styles.romaji}>EBISUDA Kana</span>
           </p>
+          <Image
+            src="/profile/kana.jpg"
+            alt="戎田 夏菜"
+            width={100}
+            height={100}
+            className={styles.photo}
+          />
           <p className={styles.bio}>
             横浜生まれ。文化服装学院情報科卒。雑誌社編集部、国内外ブランド PR、アーティストマネージメントおよびプロダクション業を経て、渡英。帰国後、2013年にQLUTCHを設立。ヴィジュアルディレクション、スタイリングを行う。
           </p>
@@ -68,6 +76,13 @@ export default function AboutPage() {
           <p className={styles.name}>
             佐々木 猛 <span className={styles.romaji}>SASAKI Takeshi</span>
           </p>
+          <Image
+            src="/profile/takeshi.jpg"
+            alt="佐々木 猛"
+            width={100}
+            height={100}
+            className={styles.photo}
+          />
           <p className={styles.bio}>
             東京生まれ。東京藝術大学日本画専攻卒業。都内デザイン会社勤務後、渡英。帰国後、2013年にQLUTCHを設立。アートディレクションを行う。
           </p>

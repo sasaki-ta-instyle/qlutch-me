@@ -74,6 +74,16 @@
   letter-spacing: 0.06em;
 }
 
+/* プロフィール写真 (旧 WP と同じく 100px 円形) */
+.photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 12px 0 14px;
+}
+
 .bio {
   font-size: 14px;
   line-height: 1.9;
