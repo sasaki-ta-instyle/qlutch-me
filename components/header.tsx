@@ -17,6 +17,29 @@ export function Header() {
     >
       {onWhite && (
         <Link href="/" className={styles.topLink}>
+          <svg
+            className={styles.topLinkIcon}
+            viewBox="0 0 12 12"
+            aria-hidden
+            focusable="false"
+          >
+            {/* 左矢印 (横線 + 山) */}
+            <path
+              d="M10 6H2"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="square"
+            />
+            <path
+              d="M5 3L2 6l3 3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+            />
+          </svg>
           TOP
         </Link>
       )}
