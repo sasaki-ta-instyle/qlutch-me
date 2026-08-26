@@ -164,6 +164,7 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
             onClose();
           }}
         >
+          Click to open on Instagram
           <svg
             className={styles.modalHintIcon}
             viewBox="0 0 12 12"
@@ -186,7 +187,6 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
               strokeLinecap="square"
             />
           </svg>
-          Click to open on Instagram
         </a>
       </div>
     </div>
