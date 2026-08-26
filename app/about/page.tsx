@@ -98,7 +98,7 @@ export default function AboutPage() {
             rel="noreferrer noopener"
             className={styles.inlineLink}
           >
-            ＞ Composite [PDF]
+            Composite [PDF]
           </a>
         </p>
       </section>
