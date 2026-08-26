@@ -60,8 +60,6 @@
 
 @media (hover: hover) {
   .topLink:hover {
-    font-weight: 700;
-    /* About は白背景 → hover は素の黒 (bold のみで強調) */
     color: var(--fg);
   }
 }
@@ -96,7 +94,6 @@
 
 @media (hover: hover) {
   .nav a:hover {
-    font-weight: 700;
     color: var(--fg);
     mix-blend-mode: normal;
   }

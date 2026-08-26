@@ -34,7 +34,6 @@
 
 @media (hover: hover) {
   .trigger:hover {
-    font-weight: 700;
     color: var(--fg);
     mix-blend-mode: normal;
   }
@@ -114,7 +113,6 @@
 
 @media (hover: hover) {
   .item:hover {
-    font-weight: 700;
     color: var(--fg);
     mix-blend-mode: normal;
   }
