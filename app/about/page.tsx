@@ -125,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.section} data-major>
-        <h2 className={styles.h2}>Clients and Projects</h2>
+        <h2 className={styles.h2}>Clients + Projects</h2>
         <p className={styles.plain}>{clients}</p>
       </section>
 
