@@ -104,6 +104,18 @@
   display: block;
 }
 
+.modalFallback {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.modalFallback p {
+  margin: 0;
+}
+
 .modalHint {
   display: inline-flex;
   align-items: center;
@@ -115,6 +127,11 @@
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: color 160ms ease;
+}
+
+.modalHint:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
 }
 
 @media (hover: hover) {

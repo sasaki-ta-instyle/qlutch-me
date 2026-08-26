@@ -18,8 +18,13 @@
   pointer-events: none;
 }
 
-/* Header 本体はクリック透過 / 中の対話要素だけ受け取る */
-.header > * {
+/*
+ * Header 本体はクリック透過 / 中の対話要素だけ受け取る。
+ * .nav や wrap div 単位で auto にすると gap 領域までクリックを吸って
+ * 背後のタイルが反応しないため、a / button だけに絞る。
+ */
+.header a,
+.header button {
   pointer-events: auto;
 }
 
