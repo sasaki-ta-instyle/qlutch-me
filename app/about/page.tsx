@@ -2,40 +2,42 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "ABOUT US",
   description:
     "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。",
 };
 
-const books = [
+type Row = [date: string, title: string, url?: string];
+
+const books: Row[] = [
   ["2019.7", "PAPER STOCK MEMBERS CREATORS FILE"],
-  ["2019.3", "デザイン・メイキング 167 デザイナーのラフスケッチ実例集 Vol.2"],
-  ["2019.2", "MdN デザイナーズファイル 2019"],
-  ["2019.1", "デザインノート No.83"],
-  ["2018.3", "デザイン・メイキング 152 デザイナーのラフスケッチ実例集"],
-  ["2018.2", "MdN デザイナーズファイル 2018"],
-  ["2017.9", "デザインノート No.75"],
-  ["2017.3", "デザイナーのアイデア戦略 発想を生み出すデザインのスケッチ実例集"],
-  ["2017.2", "MdN デザイナーズファイル 2017"],
-  ["2016.3", "デザイナーのラフスケッチ デザインのアイデアを形にする過程"],
-  ["2016.2", "MdN デザイナーズファイル 2016"],
-  ["2015.11", "プロとして恥ずかしくない 新・デザインの大原則"],
-  ["2015.2", "MdN デザイナーズファイル 2015"],
+  ["2019.3", "デザイン・メイキング 167 デザイナーのラフスケッチ実例集 Vol.2", "https://amzn.to/2tMuCup"],
+  ["2019.2", "MdN デザイナーズファイル 2019", "https://amzn.to/2NtJK8V"],
+  ["2019.1", "デザインノート No.83", "https://amzn.to/2RKPaBO"],
+  ["2018.3", "デザイン・メイキング 152 デザイナーのラフスケッチ実例集", "https://amzn.to/2tqRLoT"],
+  ["2018.2", "MdN デザイナーズファイル 2018", "https://amzn.to/2CfGEm3"],
+  ["2017.9", "デザインノート No.75", "https://amzn.to/2fMTXAI"],
+  ["2017.3", "デザイナーのアイデア戦略 発想を生み出すデザインのスケッチ実例集", "https://amzn.to/2n5vjJV"],
+  ["2017.2", "MdN デザイナーズファイル 2017", "https://amzn.to/2xOf2Sp"],
+  ["2016.3", "デザイナーのラフスケッチ デザインのアイデアを形にする過程", "https://amzn.to/2xWIh5e"],
+  ["2016.2", "MdN デザイナーズファイル 2016", "https://amzn.to/2fNtC5H"],
+  ["2015.11", "プロとして恥ずかしくない 新・デザインの大原則", "https://amzn.to/2fMIaTl"],
+  ["2015.2", "MdN デザイナーズファイル 2015", "https://amzn.to/2xNcX9o"],
 ];
 
-const awards = [["2016.6", "カンヌライオンズ 2016 PR Bronze"]];
+const awards: Row[] = [["2016.6", "カンヌライオンズ 2016 PR Bronze"]];
 
-const exhibitions = [
-  ["2026.1", "「クリエイター 100 人からの年賀状」展 vol.21 ／ 竹尾見本帖本店"],
-  ["2025.1", "「クリエイター 100 人からの年賀状」展 vol.20 ／ 竹尾見本帖本店"],
-  ["2024.1", "「クリエイター 100 人からの年賀状」展 vol.19 ／ 竹尾見本帖本店"],
-  ["2023.1", "「クリエイター 100 人からの年賀状」展 vol.18 ／ 竹尾見本帖本店"],
-  ["2022.1", "「クリエイター 100 人からの年賀状」展 vol.17 ／ 竹尾見本帖本店"],
-  ["2021.1", "「クリエイター 100 人からの年賀状」展 vol.16 ／ 竹尾見本帖本店"],
-  ["2020.6", "「Fine paper, Fine work 展」vol.06 ／ 竹尾青山見本帖"],
-  ["2020.1", "「クリエイター 100 人からの年賀状」展 vol.15 ／ 竹尾見本帖本店"],
-  ["2019.1", "「クリエイター 100 人からの年賀状」展 vol.14 ／ 竹尾見本帖本店"],
-  ["2018.1", "「クリエイター 100 人からの年賀状」展 vol.13 ／ 竹尾見本帖本店"],
+const exhibitions: Row[] = [
+  ["2026.1", "「クリエイター 100 人からの年賀状」展 vol.21 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20260122.html"],
+  ["2025.1", "「クリエイター 100 人からの年賀状」展 vol.20 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20250124.html"],
+  ["2024.1", "「クリエイター 100 人からの年賀状」展 vol.19 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20240124.html"],
+  ["2023.1", "「クリエイター 100 人からの年賀状」展 vol.18 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20230123.html"],
+  ["2022.1", "「クリエイター 100 人からの年賀状」展 vol.17 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20220120.html"],
+  ["2021.1", "「クリエイター 100 人からの年賀状」展 vol.16 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20210122.html"],
+  ["2020.6", "「Fine paper, Fine work 展」vol.06 ／ 竹尾青山見本帖", "https://www.takeo.co.jp/news/detail/003093.html"],
+  ["2020.1", "「クリエイター 100 人からの年賀状」展 vol.15 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20200128.html"],
+  ["2019.1", "「クリエイター 100 人からの年賀状」展 vol.14 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20190123.html"],
+  ["2018.1", "「クリエイター 100 人からの年賀状」展 vol.13 ／ 竹尾見本帖本店", "https://www.takeo.co.jp/exhibition/mihoncho/detail/20180126.html"],
 ];
 
 const clients =
@@ -71,7 +73,17 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <p className={styles.credit}>portrait painting by ITO Mari</p>
+        <p className={styles.credit}>
+          portrait painting by{" "}
+          <a
+            href="http://www.itomari.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={styles.inlineLink}
+          >
+            ITO Mari
+          </a>
+        </p>
       </section>
 
       <section className={styles.section}>
@@ -79,15 +91,36 @@ export default function AboutPage() {
         <p className={styles.plain}>
           ヴィジュアル制作 ／ デザイン制作 ／ プロダクション業務 ／ スタイリング ／ ブランディング
         </p>
+        <p className={styles.pdfLink}>
+          <a
+            href="http://mowdown.lolipop.jp/qlutch/pdf/2023_QLUTCH_composite.pdf"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={styles.inlineLink}
+          >
+            ＞ Composite [PDF]
+          </a>
+        </p>
       </section>
 
       <section className={styles.section} data-major>
         <h2 className={styles.h2}>Book</h2>
         <ul className={styles.datedList}>
-          {books.map(([date, title]) => (
+          {books.map(([date, title, url]) => (
             <li key={date + title}>
               <span className={styles.date}>{date}</span>
-              <span className={styles.title}>{title}</span>
+              {url ? (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={`${styles.title} ${styles.inlineLink}`}
+                >
+                  {title}
+                </a>
+              ) : (
+                <span className={styles.title}>{title}</span>
+              )}
             </li>
           ))}
         </ul>
@@ -96,10 +129,21 @@ export default function AboutPage() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Award</h2>
         <ul className={styles.datedList}>
-          {awards.map(([date, title]) => (
+          {awards.map(([date, title, url]) => (
             <li key={date + title}>
               <span className={styles.date}>{date}</span>
-              <span className={styles.title}>{title}</span>
+              {url ? (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={`${styles.title} ${styles.inlineLink}`}
+                >
+                  {title}
+                </a>
+              ) : (
+                <span className={styles.title}>{title}</span>
+              )}
             </li>
           ))}
         </ul>
@@ -108,10 +152,21 @@ export default function AboutPage() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Exhibition</h2>
         <ul className={styles.datedList}>
-          {exhibitions.map(([date, title]) => (
+          {exhibitions.map(([date, title, url]) => (
             <li key={date + title}>
               <span className={styles.date}>{date}</span>
-              <span className={styles.title}>{title}</span>
+              {url ? (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={`${styles.title} ${styles.inlineLink}`}
+                >
+                  {title}
+                </a>
+              ) : (
+                <span className={styles.title}>{title}</span>
+              )}
             </li>
           ))}
         </ul>

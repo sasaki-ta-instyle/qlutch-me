@@ -5,18 +5,18 @@ import { BudouxGlobal } from "@/components/budoux-global";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.qlutch.me"),
+  metadataBase: new URL("https://qlutch.me"),
   title: {
-    default: "QLUTCH — Creative Production",
+    default: "QLUTCH【クラッチ】",
     template: "%s | QLUTCH",
   },
   description:
     "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。",
   openGraph: {
-    title: "QLUTCH — Creative Production",
+    title: "QLUTCH【クラッチ】",
     description:
       "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。",
-    url: "https://www.qlutch.me",
+    url: "https://qlutch.me",
     siteName: "QLUTCH",
     locale: "ja_JP",
     type: "website",

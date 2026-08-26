@@ -124,6 +124,23 @@
   color: var(--fg);
 }
 
+/* インラインリンク: 素の見た目を保ちつつ hover で薄くする */
+.inlineLink {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 120ms ease;
+}
+
+.inlineLink:hover {
+  opacity: 0.5;
+}
+
+.pdfLink {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
 @media (max-width: 599px) {
   .datedList li {
     grid-template-columns: 60px 1fr;
