@@ -9,6 +9,17 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**.fbcdn.net" },
     ],
   },
+  async redirects() {
+    return [
+      // www → apex 301 リダイレクト (URL を qlutch.me に正規化)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.qlutch.me" }],
+        destination: "https://qlutch.me/:path*",
+        statusCode: 301,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
