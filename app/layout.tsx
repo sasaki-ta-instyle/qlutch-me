@@ -5,7 +5,7 @@ import { BudouxGlobal } from "@/components/budoux-global";
 import "./globals.css";
 
 const SITE_DESCRIPTION =
-  "戎田夏菜と佐々木 猛によるクリエイティブデュオ。広告ヴィジュアル、ロゴ、パッケージ、ウェブサイトなど多岐にわたりアートディレクション及びデザインを手がけています。";
+  "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。ヴィジュアルディレクション、グラフィック デザインを統合し、構想から制作まで一貫して担います。言語化を起点に、意思決定の精度を高め、表現へと導きます。";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://qlutch.me"),
