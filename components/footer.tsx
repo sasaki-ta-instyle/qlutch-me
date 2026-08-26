@@ -19,6 +19,7 @@ export function Footer() {
     <footer className={styles.footer} data-on-white={onWhite || undefined}>
       <span>© QLUTCH / KÏN LLC</span>
       <a href="#top" onClick={scrollTop} className={styles.top}>
+        BACK TO TOP
         <svg
           className={styles.topIcon}
           viewBox="0 0 12 12"
@@ -42,7 +43,6 @@ export function Footer() {
             strokeLinejoin="miter"
           />
         </svg>
-        BACK TO TOP
       </a>
     </footer>
   );
