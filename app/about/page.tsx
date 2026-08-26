@@ -180,7 +180,14 @@ export default function AboutPage() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Office</h2>
         <p className={styles.plain}>
-          〒150-0021 東京都渋谷区恵比寿西 2-4-6 #202
+          <a
+            href="https://maps.app.goo.gl/8H47mQB277v7zkkf9"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={styles.inlineLink}
+          >
+            〒150-0021 東京都渋谷区恵比寿西 2-4-6 #202
+          </a>
         </p>
       </section>
     </article>
