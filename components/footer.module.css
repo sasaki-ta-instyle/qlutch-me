@@ -1,6 +1,7 @@
 /*
- * Footer: viewport 追従（position: fixed）。individual text に mix-blend-mode: difference で
- * どんな下地でもコントラストを自動確保。ただし白背景ページでは blend をやめて素の黒に。
+ * Footer: viewport 追従（position: fixed）。© 表記と BACK TO TOP を左右に配置。
+ * どちらもテキストは白 + mix-blend-mode: difference で下地に合わせ自動反転。
+ * 白背景ページ (About 等) では blend をやめて素の黒に。
  */
 .footer {
   position: fixed;
@@ -16,14 +17,38 @@
   pointer-events: none;
 }
 
-.footer > span {
+.footer > span,
+.footer > a {
+  font-size: 10px;
+  letter-spacing: 0.08em;
   color: #ffffff;
   mix-blend-mode: difference;
-  font-size: 10px;
-  letter-spacing: 0.02em;
 }
 
-.footer[data-on-white] > span {
+.footer > a {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  transition: color 120ms ease;
+}
+
+.footer > a:hover {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
+}
+
+.topIcon {
+  width: 10px;
+  height: 10px;
+  display: block;
+  flex: none;
+}
+
+.footer[data-on-white] > span,
+.footer[data-on-white] > a {
   color: var(--fg);
   mix-blend-mode: normal;
 }

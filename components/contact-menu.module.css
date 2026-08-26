@@ -5,44 +5,45 @@
 }
 
 /*
- * Trigger (CONTACT): header の nav a と同じスキーム。
- * 白＋mix-blend-mode: difference で背景色に応じて自動コントラスト。
+ * Trigger (CONTACT): header の nav a と同じ挙動。
+ * Home では白＋mix-blend-mode: difference、About 等では素の黒。
+ * ホバー: bold + 30% 黒（灰色見え）で軽くフェード。
  */
 .trigger {
   font: inherit;
   padding: 0;
   color: #ffffff;
   mix-blend-mode: difference;
-  transition: opacity 120ms ease;
+  transition: color 120ms ease;
   cursor: pointer;
 }
 
 .trigger:hover,
 .trigger[aria-expanded="true"] {
-  opacity: 0.7;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
 }
 
-/* 白背景ページ (About 等) では blend をやめて素の黒に */
 .wrap[data-on-white] .trigger {
   color: var(--fg);
   mix-blend-mode: normal;
 }
 
 /*
- * Panel: blend group の外側に見せたいので mix-blend-mode を initial に戻す。
- * こうすると通常の白背景ドロップダウンとして描画される。
+ * Panel: 白い枠を撤去。トリガー真下の透明レイヤーに Mail / Instagram が右揃えで並ぶ。
+ * 各アイテムは trigger と同じ blend / hover 挙動で統一。
  */
 .panel {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 6px);
   right: 0;
   display: flex;
   flex-direction: column;
-  min-width: 128px;
-  padding: 4px 0;
-  background: var(--bg);
-  border: 1px solid var(--hair);
-  border-radius: 2px;
+  align-items: flex-end;
+  padding: 0;
+  background: transparent;
+  border: 0;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-2px);
@@ -51,7 +52,6 @@
     transform 140ms ease,
     visibility 0s linear 140ms;
   z-index: 10;
-  mix-blend-mode: normal;
 }
 
 .panel[data-open] {
@@ -66,25 +66,33 @@
 
 .item {
   display: block;
-  padding: 8px 16px;
+  padding: 6px 0;
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--fg-muted);
+  color: #ffffff;
+  mix-blend-mode: difference;
+  text-align: right;
   white-space: nowrap;
-  transition: color 120ms ease, background 120ms ease;
+  transition: color 120ms ease;
+}
+
+.wrap[data-on-white] .item {
+  color: var(--fg);
+  mix-blend-mode: normal;
 }
 
 .item:hover,
 .item:focus-visible {
-  color: var(--fg);
-  background: rgba(10, 10, 10, 0.03);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.3);
+  mix-blend-mode: normal;
   outline: none;
 }
 
 @media (max-width: 599px) {
   .item {
-    padding: 10px 14px;
     font-size: 13px;
+    padding: 6px 0;
   }
 }
