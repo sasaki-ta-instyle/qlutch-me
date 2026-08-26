@@ -53,6 +53,10 @@
     color: var(--fg);
     mix-blend-mode: normal;
   }
+  /* About (白背景) では本文の inlineLink と同じ opacity 0.5 の hover */
+  .footer[data-on-white] > a:hover {
+    opacity: 0.5;
+  }
 }
 
 .topIcon {
