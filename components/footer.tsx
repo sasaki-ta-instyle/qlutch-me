@@ -17,7 +17,7 @@ export function Footer() {
 
   return (
     <footer className={styles.footer} data-on-white={onWhite || undefined}>
-      <span>© QLUTCH / KÏN LLC</span>
+      <span>© QLUTCH DIV. / KÏN LLC</span>
       <a href="#top" onClick={scrollTop} className={styles.top}>
         BACK TO TOP
         <svg

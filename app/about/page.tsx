@@ -67,7 +67,7 @@ export default function AboutPage() {
             className={styles.photo}
           />
           <p className={styles.bio}>
-            横浜生まれ。文化服装学院情報科卒。雑誌社編集部、国内外ブランド PR、アーティストマネージメントおよびプロダクション業を経て、渡英。帰国後、2013年にQLUTCHを設立。ヴィジュアルディレクション、スタイリングを行う。
+            横浜生まれ。文化服装学院情報科卒。雑誌社編集部、国内外ブランド PR、アーティストマネージメントおよびプロダクションを経て、渡英。帰国後、2013年にQLUTCHを設立。ヴィジュアルディレクション、スタイリングを行う。
           </p>
         </div>
 
@@ -86,17 +86,6 @@ export default function AboutPage() {
           <p className={styles.bio}>
             東京生まれ。東京藝術大学日本画専攻卒業。都内デザイン会社勤務後、渡英。帰国後、2013年にQLUTCHを設立。アートディレクションを行う。
           </p>
-          <p className={styles.credit}>
-            portrait painting by{" "}
-            <a
-              href="http://www.itomari.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className={styles.inlineLink}
-            >
-              ITO Mari
-            </a>
-          </p>
         </div>
       </section>
 
@@ -112,7 +101,7 @@ export default function AboutPage() {
             rel="noreferrer noopener"
             className={styles.inlineLink}
           >
-            Composite [PDF]
+            Composite［PDF］
           </a>
         </p>
       </section>
@@ -195,7 +184,7 @@ export default function AboutPage() {
 
       <section className={styles.section}>
         <h2 className={styles.h2}>Office</h2>
-        <p className={styles.company}>合同会社KiiN【KÏN LLC】</p>
+        <p className={styles.company}>合同会社KiiN【キーン】</p>
         <p className={styles.plain}>
           <a
             href="https://maps.app.goo.gl/8H47mQB277v7zkkf9"
