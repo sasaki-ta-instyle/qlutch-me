@@ -193,6 +193,7 @@ export default function AboutPage() {
 
       <section className={styles.section}>
         <h2 className={styles.h2}>Office</h2>
+        <p className={styles.company}>合同会社KiiN【KÏN LLC】</p>
         <p className={styles.plain}>
           <a
             href="https://maps.app.goo.gl/8H47mQB277v7zkkf9"
