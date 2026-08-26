@@ -131,6 +131,20 @@
   transition: opacity 120ms ease;
 }
 
+/*
+ * 外部リンクを示す ↗ (30% 黒) を末尾に付ける。
+ * SVG data-URL を background-image で。テキストと同じ行に馴染ませるサイズ。
+ */
+.inlineLink::after {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.35em;
+  vertical-align: -0.02em;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M4 3h5v5M9 3L3.2 8.8' fill='none' stroke='rgba(0,0,0,0.3)' stroke-width='1.4' stroke-linecap='square'/></svg>") center / contain no-repeat;
+}
+
 @media (hover: hover) {
   .inlineLink:hover {
     opacity: 0.5;
