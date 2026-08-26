@@ -48,10 +48,12 @@
   inset: -10px -12px;
 }
 
-.footer > a:hover {
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.3);
-  mix-blend-mode: normal;
+@media (hover: hover) {
+  .footer > a:hover {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.3);
+    mix-blend-mode: normal;
+  }
 }
 
 .topIcon {

@@ -26,11 +26,18 @@
   inset: -10px -12px;
 }
 
-.trigger:hover,
 .trigger[aria-expanded="true"] {
   font-weight: 700;
   color: rgba(0, 0, 0, 0.3);
   mix-blend-mode: normal;
+}
+
+@media (hover: hover) {
+  .trigger:hover {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.3);
+    mix-blend-mode: normal;
+  }
 }
 
 .wrap[data-on-white] .trigger {
@@ -98,12 +105,19 @@
   mix-blend-mode: normal;
 }
 
-.item:hover,
 .item:focus-visible {
   font-weight: 700;
   color: rgba(0, 0, 0, 0.3);
   mix-blend-mode: normal;
   outline: none;
+}
+
+@media (hover: hover) {
+  .item:hover {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.3);
+    mix-blend-mode: normal;
+  }
 }
 
 @media (max-width: 599px) {

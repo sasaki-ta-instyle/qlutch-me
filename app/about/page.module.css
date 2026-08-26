@@ -131,8 +131,10 @@
   transition: opacity 120ms ease;
 }
 
-.inlineLink:hover {
-  opacity: 0.5;
+@media (hover: hover) {
+  .inlineLink:hover {
+    opacity: 0.5;
+  }
 }
 
 .pdfLink {

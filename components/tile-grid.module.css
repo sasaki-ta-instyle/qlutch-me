@@ -44,8 +44,10 @@
   transition: opacity 260ms ease;
 }
 
-.link:hover::after {
-  opacity: 0;
+@media (hover: hover) {
+  .link:hover::after {
+    opacity: 0;
+  }
 }
 
 .image {
@@ -115,8 +117,10 @@
   transition: color 160ms ease;
 }
 
-.modalHint:hover {
-  color: #ffffff;
+@media (hover: hover) {
+  .modalHint:hover {
+    color: #ffffff;
+  }
 }
 
 .modalHintIcon {
