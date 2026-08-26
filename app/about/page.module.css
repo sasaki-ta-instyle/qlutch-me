@@ -125,6 +125,12 @@
   gap: 6px;
   font-size: 14px;
   line-height: 1.7;
+  /*
+   * 「 」（かぎ括弧）の全角固有アキを詰めて、行頭が視覚的に揃うようにする。
+   * palt は Yu Gothic / ヒラギノ角ゴ両方でサポートされているので、
+   * 「クリエイター〜」と "THE _ _ _" が同じ左端位置で立ち上がる。
+   */
+  font-feature-settings: "palt";
 }
 
 .datedList li {
