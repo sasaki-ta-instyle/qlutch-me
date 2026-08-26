@@ -22,25 +22,21 @@
   position: absolute;
   inset: 0;
   display: block;
-  /*
-   * 通常: 全体にうっすらグレー化（軽い desaturate + 白の膜）で "整理された一覧" の顔つき。
-   * hover: 素の色に戻す（ニュートラル）= その 1 枚だけが浮き上がる。
-   */
-  filter: saturate(0.72);
-  transition: filter 260ms ease;
 }
 
+/*
+ * 通常: 黒 20% の multiply 膜でタイルを一段落ち着かせる
+ * → mix-blend-mode: difference 掛かった header/footer の白文字がしっかり読める。
+ * hover: 膜が消えて素の色（ニュートラル）に戻り、その 1 枚だけが浮き上がる。
+ */
 .link::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(245, 245, 245, 0.22);
+  background: rgba(0, 0, 0, 0.2);
+  mix-blend-mode: multiply;
   pointer-events: none;
   transition: opacity 260ms ease;
-}
-
-.link:hover {
-  filter: none;
 }
 
 .link:hover::after {
