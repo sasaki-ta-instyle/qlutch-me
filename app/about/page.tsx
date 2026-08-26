@@ -86,19 +86,18 @@ export default function AboutPage() {
           <p className={styles.bio}>
             東京生まれ。東京藝術大学日本画専攻卒業。都内デザイン会社勤務後、渡英。帰国後、2013年にQLUTCHを設立。アートディレクションを行う。
           </p>
+          <p className={styles.credit}>
+            portrait painting by{" "}
+            <a
+              href="http://www.itomari.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className={styles.inlineLink}
+            >
+              ITO Mari
+            </a>
+          </p>
         </div>
-
-        <p className={styles.credit}>
-          portrait painting by{" "}
-          <a
-            href="http://www.itomari.com/"
-            target="_blank"
-            rel="noreferrer noopener"
-            className={styles.inlineLink}
-          >
-            ITO Mari
-          </a>
-        </p>
       </section>
 
       <section className={styles.section}>
