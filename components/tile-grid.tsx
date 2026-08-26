@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import type { IgTile } from "@/lib/instagram";
 import styles from "./tile-grid.module.css";
 
@@ -34,8 +34,12 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
   return (
     <>
       <ul className={styles.grid}>
-        {tiles.map((tile) => (
-          <li key={tile.id} className={styles.item}>
+        {tiles.map((tile, index) => (
+          <li
+            key={tile.id}
+            className={styles.item}
+            style={{ ["--i" as string]: index } as CSSProperties}
+          >
             <button
               type="button"
               className={styles.link}
