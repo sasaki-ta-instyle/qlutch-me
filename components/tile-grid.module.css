@@ -104,11 +104,21 @@
 }
 
 .modalHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   transition: color 160ms ease;
+}
+
+.modalHintIcon {
+  width: 11px;
+  height: 11px;
+  display: block;
+  flex: none;
 }
 
 .modalImageBtn:hover .modalHint {

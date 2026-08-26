@@ -87,7 +87,31 @@ function Modal({ tile, onClose }: { tile: IgTile; onClose: () => void }) {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={tile.mediaUrl} alt="" className={styles.modalImage} />
-        <span className={styles.modalHint}>Click to open on Instagram</span>
+        <span className={styles.modalHint}>
+          <svg
+            className={styles.modalHintIcon}
+            viewBox="0 0 12 12"
+            aria-hidden
+            focusable="false"
+          >
+            {/* 外部リンクを示す ↗ 矢印 (角の直角 + 対角線) */}
+            <path
+              d="M4 3h5v5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="square"
+            />
+            <path
+              d="M9 3L3.2 8.8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="square"
+            />
+          </svg>
+          Click to open on Instagram
+        </span>
       </button>
       <button
         type="button"
