@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./contact-menu.module.css";
 
 /**
@@ -10,6 +11,8 @@ import styles from "./contact-menu.module.css";
 export function ContactMenu() {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
+  const onWhite = pathname !== "/";
 
   useEffect(() => {
     if (!open) return;
@@ -34,6 +37,7 @@ export function ContactMenu() {
     <div
       ref={wrapRef}
       className={styles.wrap}
+      data-on-white={onWhite || undefined}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >

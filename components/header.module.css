@@ -45,6 +45,12 @@
   font-weight: 700;
 }
 
+/* 白背景ページ (About 等) では blend をやめて素の黒テキストに */
+.header[data-on-white] .nav a {
+  color: var(--fg);
+  mix-blend-mode: normal;
+}
+
 @media (max-width: 599px) {
   .header {
     padding: 16px 16px;

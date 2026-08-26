@@ -9,6 +9,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
+  /*
+   * 最終行のタイル数が列数に満たないときの空セルは、grid コンテナの背景 (30% グレー)
+   * がそのまま見える。写真タイルは gap 0 で全面を覆うので、被写体エリアの見た目は変わらない。
+   */
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .item {

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { LogoMark } from "@/components/logo-mark";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja">
       <body>
-        <LogoMark />
         <Header />
         <main>{children}</main>
         <Footer />

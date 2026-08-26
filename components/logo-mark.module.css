@@ -11,9 +11,13 @@
 }
 
 .img {
-  /* 幅 80%（画面中央から左右 10% 余白）。SVG アスペクト比 1240:430.6 ≒ 2.88:1 で高さ自動。 */
+  /*
+   * 幅 80%（画面中央から左右 10% 余白）。SVG アスペクト比 1240:430.6 ≒ 2.88:1 で高さ自動。
+   * 新 SVG は内部で fill: #fff を持つので、CSS 側で invert / mix-blend-mode の
+   * 二重処理はかけない（細線ストロークが blend で色ばれ・粒立ちする副作用を回避）。
+   * タイル上のコントラストは軽い drop-shadow で確保。
+   */
   width: 80%;
   height: auto;
-  filter: brightness(0) invert(1);
-  mix-blend-mode: difference;
+  filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));
 }
