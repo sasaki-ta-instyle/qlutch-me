@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ContactMenu } from "./contact-menu";
 import { NavLink } from "./nav-link";
@@ -14,6 +15,11 @@ export function Header() {
       className={styles.header}
       data-on-white={onWhite || undefined}
     >
+      {onWhite && (
+        <Link href="/" className={styles.topLink}>
+          TOP
+        </Link>
+      )}
       <nav className={styles.nav} aria-label="サイト内ナビゲーション">
         <NavLink href="/about">ABOUT</NavLink>
         <ContactMenu />

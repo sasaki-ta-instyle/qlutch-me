@@ -23,6 +23,37 @@
   pointer-events: auto;
 }
 
+/*
+ * About 等の非 Home ページで表示される左端の TOP リンク。
+ * margin-right: auto で自身を左に、nav を右に押しやる。
+ */
+.topLink {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-right: auto;
+  transition: color 120ms ease;
+}
+
+.topLink::before {
+  content: "";
+  position: absolute;
+  inset: -10px -12px;
+}
+
+.topLink:hover {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 599px) {
+  .topLink {
+    font-size: 13px;
+  }
+}
+
 .nav {
   display: flex;
   gap: 20px;
