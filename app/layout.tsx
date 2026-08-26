@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { BudouxGlobal } from "@/components/budoux-global";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ja">
       <body>
+        <BudouxGlobal />
         <Header />
         <main>{children}</main>
         <Footer />

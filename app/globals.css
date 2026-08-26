@@ -80,7 +80,20 @@ button {
   cursor: pointer;
 }
 
-/* BudouX で挿入された <wbr> 位置以外では改行しない */
+/*
+ * BudouX で挿入された <wbr> 位置以外では改行しない。
+ * BudouxGlobal は main 内の h1-h4 / p / li / blockquote / td / th を対象にするため、
+ * それらに keep-all を掛けて <wbr> 位置以外で切れないようにする。
+ */
+main h1,
+main h2,
+main h3,
+main h4,
+main p,
+main li,
+main blockquote,
+main td,
+main th,
 .budoux {
   word-break: keep-all;
   overflow-wrap: anywhere;

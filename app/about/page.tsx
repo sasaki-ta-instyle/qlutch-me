@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Budoux } from "@/components/budoux";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -45,11 +44,9 @@ const clients =
 export default function AboutPage() {
   return (
     <article className={styles.article}>
-      <Budoux>
-        <p className={styles.lede}>
-          QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。ヴィジュアルディレクション、グラフィック デザインを統合し、構想から制作まで一貫して担います。言語化を起点に、意思決定の精度を高め、表現へと導きます。
-        </p>
-      </Budoux>
+      <p className={styles.lede}>
+        QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。ヴィジュアルディレクション、グラフィック デザインを統合し、構想から制作まで一貫して担います。言語化を起点に、意思決定の精度を高め、表現へと導きます。
+      </p>
 
       <section className={styles.section}>
         <h2 className={styles.h2}>Creators</h2>
@@ -59,11 +56,9 @@ export default function AboutPage() {
           <p className={styles.name}>
             戎田 夏菜 <span className={styles.romaji}>EBISUDA Kana</span>
           </p>
-          <Budoux>
-            <p className={styles.bio}>
-              横浜生まれ。文化服装学院情報科卒。雑誌社編集部、国内外ブランド PR、アーティストマネージメントおよびプロダクション業を経て、渡英。帰国後、2013年にQLUTCHを設立。ヴィジュアルディレクション、スタイリングを行う。
-            </p>
-          </Budoux>
+          <p className={styles.bio}>
+            横浜生まれ。文化服装学院情報科卒。雑誌社編集部、国内外ブランド PR、アーティストマネージメントおよびプロダクション業を経て、渡英。帰国後、2013年にQLUTCHを設立。ヴィジュアルディレクション、スタイリングを行う。
+          </p>
         </div>
 
         <div className={styles.creator}>
@@ -71,11 +66,9 @@ export default function AboutPage() {
           <p className={styles.name}>
             佐々木 猛 <span className={styles.romaji}>SASAKI Takeshi</span>
           </p>
-          <Budoux>
-            <p className={styles.bio}>
-              東京生まれ。東京藝術大学日本画専攻卒業。都内デザイン会社勤務後、渡英。帰国後、2013年にQLUTCHを設立。アートディレクションを行う。
-            </p>
-          </Budoux>
+          <p className={styles.bio}>
+            東京生まれ。東京藝術大学日本画専攻卒業。都内デザイン会社勤務後、渡英。帰国後、2013年にQLUTCHを設立。アートディレクションを行う。
+          </p>
         </div>
 
         <p className={styles.credit}>portrait painting by ITO Mari</p>
