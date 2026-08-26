@@ -10,9 +10,22 @@ import styles from "./contact-menu.module.css";
  */
 export function ContactMenu() {
   const [open, setOpen] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
   const onWhite = pathname !== "/";
+
+  // ホバー可能デバイス (PC マウス等) だけで mouseenter/leave を使う。
+  // SP タップでは iOS の合成 mouseenter → click 順が open→toggle→close になるため、
+  // hover ハンドラを繋がず click 1 発でトグルさせる。
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(hover: hover)");
+    const update = () => setCanHover(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -38,8 +51,8 @@ export function ContactMenu() {
       ref={wrapRef}
       className={styles.wrap}
       data-on-white={onWhite || undefined}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={canHover ? () => setOpen(true) : undefined}
+      onMouseLeave={canHover ? () => setOpen(false) : undefined}
     >
       <button
         type="button"
