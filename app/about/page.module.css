@@ -28,6 +28,12 @@
   margin: 0 0 24px;
 }
 
+/* '+' はデフォルトで x-height 中央 → uppercase の cap-height 中央に持ち上げる */
+.plus {
+  display: inline-block;
+  vertical-align: 0.15em;
+}
+
 .lede {
   font-size: 14px;
   line-height: 1.95;
