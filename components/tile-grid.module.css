@@ -22,11 +22,29 @@
   position: absolute;
   inset: 0;
   display: block;
-  transition: opacity 160ms ease;
+  /*
+   * 通常: 全体にうっすらグレー化（軽い desaturate + 白の膜）で "整理された一覧" の顔つき。
+   * hover: 素の色に戻す（ニュートラル）= その 1 枚だけが浮き上がる。
+   */
+  filter: saturate(0.72);
+  transition: filter 260ms ease;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 245, 245, 0.22);
+  pointer-events: none;
+  transition: opacity 260ms ease;
 }
 
 .link:hover {
-  opacity: 0.86;
+  filter: none;
+}
+
+.link:hover::after {
+  opacity: 0;
 }
 
 .image {
