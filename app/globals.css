@@ -33,6 +33,16 @@
   box-sizing: border-box;
 }
 
+/* 旧 WP (Fukasawa テーマ) と同じテキスト選択色 */
+::selection {
+  background: #444;
+  color: #ffffff;
+}
+::-moz-selection {
+  background: #444;
+  color: #ffffff;
+}
+
 html,
 body {
   padding: 0;
