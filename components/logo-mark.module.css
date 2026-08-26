@@ -11,8 +11,8 @@
 }
 
 .img {
-  /* 幅いっぱい。SVG のアスペクト比 1240:430.6 ≒ 2.88:1 で高さ自動。 */
-  width: 100%;
+  /* 幅 80%（画面中央から左右 10% 余白）。SVG アスペクト比 1240:430.6 ≒ 2.88:1 で高さ自動。 */
+  width: 80%;
   height: auto;
   filter: brightness(0) invert(1);
   mix-blend-mode: difference;
