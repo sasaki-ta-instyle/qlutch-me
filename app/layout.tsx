@@ -4,25 +4,37 @@ import { Footer } from "@/components/footer";
 import { BudouxGlobal } from "@/components/budoux-global";
 import "./globals.css";
 
+const SITE_DESCRIPTION =
+  "戎田夏菜と佐々木 猛によるクリエイティブデュオ。広告ヴィジュアル、ロゴ、パッケージ、ウェブサイトなど多岐にわたりアートディレクション及びデザインを手がけています。";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://qlutch.me"),
   title: {
-    default: "QLUTCH【クラッチ】",
-    template: "%s | QLUTCH",
+    default: "QLUTCH【クラッチ】- Creative Production, Visual Direction",
+    template: "%s ｜ QLUTCH【クラッチ】- Creative Production, Visual Direction",
   },
-  description:
-    "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。",
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: "QLUTCH【クラッチ】",
-    description:
-      "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。",
+    title: "QLUTCH【クラッチ】- Creative Production, Visual Direction",
+    description: SITE_DESCRIPTION,
     url: "https://qlutch.me",
     siteName: "QLUTCH",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: "QLUTCH",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "QLUTCH【クラッチ】- Creative Production, Visual Direction",
+    description: SITE_DESCRIPTION,
+    images: ["/ogp.png"],
   },
 };
 

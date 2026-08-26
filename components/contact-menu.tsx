@@ -78,7 +78,7 @@ export function ContactMenu() {
           MAIL
         </a>
         <a
-          href="https://ig.me/m/qlutchme"
+          href="https://www.instagram.com/qlutchme/"
           target="_blank"
           rel="noreferrer noopener"
           className={styles.item}

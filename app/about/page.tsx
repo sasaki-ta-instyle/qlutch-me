@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "ABOUT",
   description:
-    "QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。",
+    "戎田夏菜と佐々木 猛によるクリエイティブデュオ。広告ヴィジュアル、ロゴ、パッケージ、ウェブサイトなど多岐にわたりアートディレクション及びデザインを手がけています。",
 };
 
 type Row = [date: string, title: string, url?: string];
