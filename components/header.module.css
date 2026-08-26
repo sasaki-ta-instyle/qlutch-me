@@ -97,11 +97,7 @@
 @media (hover: hover) {
   .nav a:hover {
     font-weight: 700;
-    /*
-     * 透けない solid gray (旧 rgba(0,0,0,0.3) の白背景上の見た目と同色 #b3b3b3)
-     * mix-blend を切ってタイル上でも同じ solid gray に見せる。
-     */
-    color: #b3b3b3;
+    color: var(--fg);
     mix-blend-mode: normal;
   }
 }
