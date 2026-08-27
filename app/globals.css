@@ -18,10 +18,10 @@
   --header-h: 62px;
   --footer-h: 46px;
 
-  /* type — 欧文 Raleway (Google Fonts / next/font)、和文はシステム多段フォールバック */
-  --font-sans: var(--font-raleway), "Helvetica Neue", Helvetica, Arial,
-    "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",
-    "メイリオ", Meiryo, sans-serif;
+  /* type — QLUTCH ブランド書体スタック（Helvetica Neue 起点、和文フォールバック多段） */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic,
+    "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
+    sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   color-scheme: light;

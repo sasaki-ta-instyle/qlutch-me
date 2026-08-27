@@ -38,7 +38,6 @@
   align-items: center;
   gap: 6px;
   font-size: 14px;
-  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg);
@@ -76,8 +75,6 @@
   display: flex;
   gap: 20px;
   font-size: 14px;
-  /* Raleway (欧文) を Medium で使う。和文が来ないので JP フォールバックには影響なし。 */
-  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -108,7 +105,7 @@
 }
 
 .nav a[aria-current="page"] {
-  font-weight: 900;
+  font-weight: 700;
   /* 現在ページはただのテキスト。hover なし・cursor もデフォルト。 */
   cursor: default;
   pointer-events: none;
