@@ -105,7 +105,7 @@
 }
 
 .nav a[aria-current="page"] {
-  font-weight: 700;
+  font-weight: 800;
   /* 現在ページはただのテキスト。hover なし・cursor もデフォルト。 */
   cursor: default;
   pointer-events: none;

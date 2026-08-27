@@ -53,6 +53,8 @@ html {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
+  /* 欧文 (Raleway) を全体的に一段階 weight up。和文フォールバックにも軽くかかる。 */
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
