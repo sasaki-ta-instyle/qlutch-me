@@ -68,7 +68,8 @@
 
 .name {
   font-size: 14px;
-  font-weight: 700;
+  /* 戎田 夏菜 / 佐々木 猛 は和文なので元の 600 のまま。 */
+  font-weight: 600;
   margin: 0 0 10px;
 }
 
