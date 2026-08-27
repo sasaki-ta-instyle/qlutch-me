@@ -85,6 +85,8 @@
   position: relative;
   display: block;
   padding: 6px 0;
+  /* MAIL / INSTAGRAM は素の Helvetica に戻す (nav の barcode を上書き) */
+  font-family: var(--font-sans);
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
