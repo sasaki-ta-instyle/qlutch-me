@@ -21,30 +21,6 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: #e6e6e6;
-  /*
-   * 登場アニメ: 下から slide-in (translateY 60px → 0) + fade。
-   * animista.net の slide-in-bottom を踏襲。
-   * --n-i = (visibleTiles.length - 1 - index) を使い、配列末尾 (グリッド下側) から順に出す。
-   */
-  animation: slideInBottom 520ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: calc(var(--n-i, 0) * 12ms);
-}
-
-@keyframes slideInBottom {
-  from {
-    transform: translateY(60px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .item {
-    animation: none;
-  }
 }
 
 .link {
