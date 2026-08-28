@@ -91,7 +91,7 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
   return (
     <>
       <ul className={styles.grid}>
-        {visibleTiles.map((tile) => (
+        {visibleTiles.map((tile, index) => (
           <li key={tile.id} className={styles.item}>
             <button
               type="button"
@@ -106,6 +106,11 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
                 sizes="(max-width: 599px) 50vw, (max-width: 819px) 33vw, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, (max-width: 1599px) 20vw, (max-width: 2559px) 16vw, 14vw"
                 className={styles.image}
                 unoptimized
+                /*
+                 * 先頭 8 枚は最悪ケース (7 列レイアウト = 30" 4K) の 1 行分。
+                 * preload リンクを出して初期表示を前倒し、それ以降は default lazy に任せる。
+                 */
+                priority={index < 8}
                 onError={() => handleImgError(tile.id)}
               />
             </button>

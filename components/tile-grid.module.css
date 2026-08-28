@@ -22,6 +22,13 @@
   overflow: hidden;
   /* 画像 lazy 前のプレースホルダー色。ニュートラル微グレーベースに合わせる。 */
   background: #ececec;
+  /*
+   * オフスクリーンのタイルはレイアウト・ペイントをブラウザにスキップさせる。
+   * auto キーワードで「初回レンダー後に測った実サイズを記憶」、
+   * fallback として 200 × 250 (4:5) を渡す。実際の描画時は aspect-ratio が優先。
+   */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 200px auto 250px;
 }
 
 .link {
