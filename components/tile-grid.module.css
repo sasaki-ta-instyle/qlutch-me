@@ -15,8 +15,8 @@
    * .link::after のドット multiply と同じ 4px グリッドのドット texture で統一。
    */
   background-color: transparent;
-  background-image: radial-gradient(rgba(17, 17, 17, 0.55) 0.7px, transparent 1.2px);
-  background-size: 4px 4px;
+  background-image: radial-gradient(rgba(17, 17, 17, 0.4) 0.7px, transparent 1.2px);
+  background-size: 8px 8px;
 }
 
 .item {
@@ -42,8 +42,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(17, 17, 17, 0.55) 0.7px, transparent 1.2px);
-  background-size: 4px 4px;
+  background-image: radial-gradient(rgba(17, 17, 17, 0.4) 0.7px, transparent 1.2px);
+  background-size: 8px 8px;
   mix-blend-mode: multiply;
   pointer-events: none;
   transition: opacity 320ms cubic-bezier(0.2, 0, 0, 1);
