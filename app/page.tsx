@@ -6,7 +6,8 @@ import { LogoMark } from "@/components/logo-mark";
 export const revalidate = 3600;
 
 export default async function Home() {
-  const tiles = await fetchTiles(100);
+  // Graph API の limit。カルーセル展開後の実タイル数はこれの 1.5〜2 倍になり得る。
+  const tiles = await fetchTiles(60);
   return (
     <>
       <LogoMark />
