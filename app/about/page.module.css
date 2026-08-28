@@ -20,9 +20,9 @@
 }
 
 .h2 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--fg-muted);
   margin: 0 0 24px;
@@ -36,7 +36,7 @@
 
 .lede {
   font-size: 14px;
-  line-height: 1.95;
+  line-height: 2.0;
   margin: 0;
   padding-right: clamp(0px, 8vw, 96px); /* 導入は右を絞って一段深く */
 }
@@ -61,7 +61,7 @@
 .role {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   color: var(--fg-muted);
   margin: 0 0 4px;
 }
@@ -70,6 +70,8 @@
   font-size: 14px;
   /* 戎田 夏菜 / 佐々木 猛 は和文なので元の 600 のまま。 */
   font-weight: 600;
+  /* palt を明示的に効かせて姓名間の全角空きを詰める */
+  font-feature-settings: "palt" 1;
   margin: 0 0 10px;
 }
 
@@ -81,11 +83,14 @@
   letter-spacing: 0.06em;
 }
 
-/* プロフィール写真 (旧 WP と同じく 100px 円形) */
+/*
+ * プロフィール写真 96px 正方形 (ミニマル路線＋ Instagram タイルが円形要素を持たないため、
+ * About だけ円形写真が唐突にならないよう四角クロップに揃える)。
+ */
 .photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  border-radius: 2px;
   object-fit: cover;
   display: block;
   margin: 12px 0 14px;
@@ -171,7 +176,7 @@
   height: 0.75em;
   margin-left: 0.35em;
   vertical-align: -0.02em;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M4 3h5v5M9 3L3.2 8.8' fill='none' stroke='rgba(0,0,0,0.3)' stroke-width='1.4' stroke-linecap='square'/></svg>") center / contain no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M4 3h5v5M9 3L3.2 8.8' fill='none' stroke='rgba(17,17,17,0.35)' stroke-width='1.4' stroke-linecap='square'/></svg>") center / contain no-repeat;
 }
 
 @media (hover: hover) {

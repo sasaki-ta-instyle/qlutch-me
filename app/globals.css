@@ -4,11 +4,14 @@
  */
 
 :root {
-  /* palette — 骨子。ブランドカラーは後で微調整 */
-  --bg: #ffffff;
-  --fg: #0a0a0a;
-  --fg-muted: #6b6b6b;
-  --hair: rgba(10, 10, 10, 0.08);
+  /*
+   * palette — 純白×漆黒ではなく「温かみのあるオフホワイト × 深いインク色」。
+   * 写真タイル→白背景の境界を柔らかく、印刷インク寄りの落ち着きへ。
+   */
+  --bg: #fafaf7;
+  --fg: #111111;
+  --fg-muted: #7a7671;
+  --hair: rgba(17, 17, 17, 0.10);
 
   /* spacing */
   --pad-x: clamp(16px, 3.2vw, 40px);
@@ -18,9 +21,16 @@
   --header-h: 62px;
   --footer-h: 46px;
 
-  /* type — QLUTCH ブランド書体スタック（Helvetica Neue 起点、和文フォールバック多段） */
-  --font-sans: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic,
-    "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
+  /*
+   * type — QLUTCH ブランド書体スタック（Helvetica Neue 起点、和文フォールバック多段）。
+   * Noto Sans JP を Hiragino → メイリオ の中間に挟むことで、Windows / Android で
+   * 急に Meiryo に落ちて緩む OS 差を吸収する。
+   */
+  --font-sans: "Helvetica Neue", Helvetica, Arial,
+    "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic",
+    "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP",
+    "メイリオ", Meiryo,
     sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -33,14 +43,14 @@
   box-sizing: border-box;
 }
 
-/* 旧 WP (Fukasawa テーマ) と同じテキスト選択色 */
+/* セレクション色は fg / bg と同じインク軸で一貫させる */
 ::selection {
-  background: #444;
-  color: #ffffff;
+  background: var(--fg);
+  color: var(--bg);
 }
 ::-moz-selection {
-  background: #444;
-  color: #ffffff;
+  background: var(--fg);
+  color: var(--bg);
 }
 
 html,
@@ -53,6 +63,11 @@ html {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
+  /*
+   * palt = プロポーショナル字送り、kern = 欧文カーニング。
+   * ここでグローバルに ON にしておき、code / pre / 数字テーブル等では個別に OFF に戻す。
+   */
+  font-feature-settings: "palt" 1, "kern" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -79,6 +94,8 @@ video {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 160ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 160ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 button {
@@ -88,6 +105,8 @@ button {
   border: 0;
   padding: 0;
   cursor: pointer;
+  transition: color 160ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 160ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 /*

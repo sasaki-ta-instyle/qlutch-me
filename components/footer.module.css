@@ -19,14 +19,14 @@
 
 .footer > span {
   font-size: 10px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   color: #ffffff;
   mix-blend-mode: difference;
 }
 
 .footer > a {
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   color: #ffffff;
   mix-blend-mode: difference;
 }
@@ -38,7 +38,6 @@
   align-items: center;
   gap: 6px;
   text-transform: uppercase;
-  transition: color 120ms ease;
 }
 
 /* 見えないヒットゾーン (誤クリック対策) */

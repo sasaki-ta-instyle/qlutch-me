@@ -20,7 +20,8 @@
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: #e6e6e6;
+  /* 画像 lazy 前のプレースホルダー色。オフホワイト系ベースに合わせる。 */
+  background: #eeece7;
 }
 
 .link {
@@ -41,7 +42,7 @@
   background: rgba(0, 0, 0, 0.3);
   mix-blend-mode: multiply;
   pointer-events: none;
-  transition: opacity 260ms ease;
+  transition: opacity 320ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 @media (hover: hover) {
