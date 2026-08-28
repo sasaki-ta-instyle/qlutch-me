@@ -10,10 +10,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
   /*
-   * 最終行のタイル数が列数に満たないときの空セルは、grid コンテナの背景 (30% グレー)
-   * がそのまま見える。写真タイルは gap 0 で全面を覆うので、被写体エリアの見た目は変わらない。
+   * 最終行のタイル数が列数に満たないときの空セルは、grid コンテナの背景がそのまま見える。
+   * 写真タイルは gap 0 で全面を覆うので、被写体エリアの見た目は影響を受けない。
+   * .link::after のドット multiply と同じ 4px グリッドのドット texture で統一。
    */
-  background: rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  background-image: radial-gradient(rgba(17, 17, 17, 0.55) 0.7px, transparent 1.2px);
+  background-size: 4px 4px;
 }
 
 .item {
@@ -31,15 +34,16 @@
 }
 
 /*
- * 通常: 黒 20% の multiply 膜でタイルを一段落ち着かせる
- * → mix-blend-mode: difference 掛かった header/footer の白文字がしっかり読める。
- * hover: 膜が消えて素の色（ニュートラル）に戻り、その 1 枚だけが浮き上がる。
+ * 通常: 30% 黒のベタ multiply ではなく、4px グリッドの細かい黒ドット multiply でタイルを落ち着かせる。
+ * → mix-blend-mode: difference 掛かった header/footer の白文字はドットの隙間で読める。
+ * hover: ドット膜が消えて素の色（ニュートラル）に戻り、その 1 枚だけが浮き上がる。
  */
 .link::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background-image: radial-gradient(rgba(17, 17, 17, 0.55) 0.7px, transparent 1.2px);
+  background-size: 4px 4px;
   mix-blend-mode: multiply;
   pointer-events: none;
   transition: opacity 320ms cubic-bezier(0.2, 0, 0, 1);
