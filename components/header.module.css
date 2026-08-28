@@ -38,7 +38,8 @@
   align-items: center;
   gap: 6px;
   font-size: 14px;
-  letter-spacing: 0.14em;
+  /* CONTACT (button UA default = normal) と同じ詰まった見た目に統一。 */
+  letter-spacing: normal;
   text-transform: uppercase;
   color: var(--fg);
   margin-right: auto;
@@ -74,7 +75,8 @@
   display: flex;
   gap: 20px;
   font-size: 14px;
-  letter-spacing: 0.14em;
+  /* CONTACT (button UA default = normal) と同じ詰まった見た目に統一。 */
+  letter-spacing: normal;
   text-transform: uppercase;
 }
 

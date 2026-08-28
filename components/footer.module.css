@@ -19,14 +19,16 @@
 
 .footer > span {
   font-size: 10px;
-  letter-spacing: 0.14em;
+  /* CONTACT (button UA default = normal) と同じ詰まった見た目に統一。 */
+  letter-spacing: normal;
   color: #ffffff;
   mix-blend-mode: difference;
 }
 
 .footer > a {
   font-size: 12px;
-  letter-spacing: 0.14em;
+  /* CONTACT (button UA default = normal) と同じ詰まった見た目に統一。 */
+  letter-spacing: normal;
   color: #ffffff;
   mix-blend-mode: difference;
 }

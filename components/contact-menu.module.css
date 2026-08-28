@@ -12,6 +12,12 @@
 .trigger {
   position: relative;
   font: inherit;
+  /*
+   * button の UA スタイルで letter-spacing: normal が入っており、
+   * .nav の letter-spacing は継承されない。この詰まった見た目を全体の基準とする。
+   * ここでは明示的に normal を書き残して意図を保存する。
+   */
+  letter-spacing: normal;
   padding: 0;
   color: #ffffff;
   mix-blend-mode: difference;
@@ -85,7 +91,8 @@
   display: block;
   padding: 6px 0;
   font-size: 14px;
-  letter-spacing: 0.14em;
+  /* CONTACT (button UA default = normal) と同じ詰まった見た目に統一。 */
+  letter-spacing: normal;
   text-transform: uppercase;
   color: #ffffff;
   mix-blend-mode: difference;
