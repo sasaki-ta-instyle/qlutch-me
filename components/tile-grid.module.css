@@ -20,8 +20,8 @@
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  /* 画像 lazy 前のプレースホルダー色。オフホワイト系ベースに合わせる。 */
-  background: #eeece7;
+  /* 画像 lazy 前のプレースホルダー色。ニュートラル微グレーベースに合わせる。 */
+  background: #ececec;
 }
 
 .link {
