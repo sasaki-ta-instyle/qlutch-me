@@ -6,7 +6,6 @@ import {
   useEffect,
   useRef,
   useState,
-  type CSSProperties,
   type KeyboardEvent as ReactKeyboardEvent,
   type SyntheticEvent,
 } from "react";
@@ -92,12 +91,8 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
   return (
     <>
       <ul className={styles.grid}>
-        {visibleTiles.map((tile, index) => (
-          <li
-            key={tile.id}
-            className={styles.item}
-            style={{ ["--i" as string]: index } as CSSProperties}
-          >
+        {visibleTiles.map((tile) => (
+          <li key={tile.id} className={styles.item}>
             <button
               type="button"
               className={styles.link}

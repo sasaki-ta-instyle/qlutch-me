@@ -21,34 +21,6 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: #e6e6e6;
-  /*
-   * 登場アニメ: 上から降ってきて着地 → 積まれていく感じ。
-   * translateY(-120%→0) で自分自身のセル高分ぐらい上から落とし、
-   * cubic-bezier で軽い overshoot (着地の "コトン") を作る。
-   * --i (配列 index) 順に、上のセルから 20ms ずつ遅らせて積み上げていく。
-   */
-  animation: dropStack 640ms cubic-bezier(0.34, 1.4, 0.64, 1) both;
-  animation-delay: calc(var(--i, 0) * 20ms);
-}
-
-@keyframes dropStack {
-  0% {
-    transform: translateY(-120%);
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .item {
-    animation: none;
-  }
 }
 
 .link {
