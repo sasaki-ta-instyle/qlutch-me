@@ -16,7 +16,12 @@ export function Footer() {
   };
 
   return (
-    <footer className={styles.footer} data-on-white={onWhite || undefined}>
+    <footer
+      className={styles.footer}
+      data-on-white={onWhite || undefined}
+      /* 【C】ページ遷移中も Footer は動かさない。header と同扱い。 */
+      style={{ viewTransitionName: "site-footer" }}
+    >
       <span>© QLUTCH DIV. / KÏN LLC</span>
       <a href="#top" onClick={scrollTop} className={styles.top}>
         BACK TO TOP

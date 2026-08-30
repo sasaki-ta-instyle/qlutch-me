@@ -29,6 +29,32 @@
    */
   content-visibility: auto;
   contain-intrinsic-size: auto 200px auto 250px;
+  /*
+   * 【A】タイル staggered reveal。tile-grid.tsx で --i (0〜12) を注入し
+   * 40ms 刻みで上限 480ms までズラす。
+   * backwards で animation-delay 中は from state (opacity 0 + scale 0.985) を保持。
+   * wsrv 経由で画像 DL が軽くなったため、placeholder → 画像の fade シーケンス全体が
+   * 短時間で完結し、"印刷されて上がる" 感じが出るようになった。
+   */
+  animation: tileReveal 420ms cubic-bezier(0.2, 0, 0, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 40ms);
+}
+
+@keyframes tileReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    animation: none;
+  }
 }
 
 .link {

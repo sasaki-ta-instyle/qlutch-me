@@ -128,3 +128,56 @@ main th,
   overflow-wrap: anywhere;
   line-break: strict;
 }
+
+/*
+ * =============================================================
+ * 【C】ページ遷移 View Transitions（Home ↔ About）
+ * -------------------------------------------------------------
+ * ・root cross-fade は 320ms、cubic-bezier(0.2, 0, 0, 1)
+ * ・Header / Footer は viewTransitionName で切り離し、animation:none で
+ *   ページ遷移中も静止させる（サイトの余白構造 = 固定 chrome を維持）。
+ * ・Logo mark は Home 専用要素なので default fade in/out に任せる。
+ * ・::view-transition overlay は pointer-events を透過させて、
+ *   トランジション中も CONTACT dropdown 等のクリックを止めない。
+ * ・prefers-reduced-motion 時はすべて 0s（瞬時切替 = ブラウザデフォルト挙動）。
+ * =============================================================
+ */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 320ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+::view-transition-group(site-header),
+::view-transition-group(site-footer) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header),
+::view-transition-old(site-footer) {
+  /* 前ページの header/footer の残像を消して現ページのだけ残す */
+  display: none;
+}
+::view-transition-new(site-header),
+::view-transition-new(site-footer) {
+  animation: none;
+}
+
+::view-transition-old(logo-mark),
+::view-transition-new(logo-mark) {
+  animation-duration: 240ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

@@ -9,7 +9,15 @@ import styles from "./logo-mark.module.css";
  */
 export function LogoMark() {
   return (
-    <div className={styles.wrap} aria-hidden>
+    <div
+      className={styles.wrap}
+      aria-hidden
+      /*
+       * 【C】Home 専用要素。About 遷移時は old 側にしか存在しないので
+       * default fade で消える。Home 復帰時は new 側で fade in。
+       */
+      style={{ viewTransitionName: "logo-mark" }}
+    >
       <Image
         src="/logo.svg"
         alt=""

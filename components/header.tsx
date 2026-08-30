@@ -14,6 +14,11 @@ export function Header() {
     <header
       className={styles.header}
       data-on-white={onWhite || undefined}
+      /*
+       * 【C】ページ遷移 View Transitions 時、Header は動かさない。
+       * viewTransitionName で root snapshot から切り離し、CSS で animation:none にする。
+       */
+      style={{ viewTransitionName: "site-header" }}
     >
       {onWhite && (
         <Link href="/" className={styles.topLink}>

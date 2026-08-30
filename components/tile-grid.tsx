@@ -6,6 +6,7 @@ import {
   useEffect,
   useRef,
   useState,
+  type CSSProperties,
   type KeyboardEvent as ReactKeyboardEvent,
   type SyntheticEvent,
 } from "react";
@@ -111,7 +112,12 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
     <>
       <ul className={styles.grid}>
         {visibleTiles.map((tile, index) => (
-          <li key={tile.id} className={styles.item}>
+          <li
+            key={tile.id}
+            className={styles.item}
+            /* 【A】staggered reveal の順序変数。上限 12 で頭打ち = 480ms 以上待たせない。 */
+            style={{ "--i": Math.min(index, 12) } as CSSProperties}
+          >
             <button
               type="button"
               className={styles.link}

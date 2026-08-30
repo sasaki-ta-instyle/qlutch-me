@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ViewTransition } from "react";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -47,7 +48,9 @@ const clients =
 
 export default function AboutPage() {
   return (
-    <article className={styles.article}>
+    /* 【C】Home と対を成す ViewTransition ラッパー。ページ遷移時に cross-fade。 */
+    <ViewTransition default="auto">
+      <article className={styles.article}>
       <p className={styles.lede}>
         QLUTCH【クラッチ】は、ブランドに必要な問いを整理し、方向性を示すクリエイティブプロダクションです。ヴィジュアルディレクション、グラフィック デザインを統合し、構想から制作まで一貫して担います。言語化を起点に、意思決定の精度を高め、表現へと導きます。
       </p>
@@ -197,6 +200,7 @@ export default function AboutPage() {
           </a>
         </p>
       </section>
-    </article>
+      </article>
+    </ViewTransition>
   );
 }
