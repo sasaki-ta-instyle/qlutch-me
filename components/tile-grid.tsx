@@ -10,6 +10,7 @@ import {
   type SyntheticEvent,
 } from "react";
 import type { IgTile } from "@/lib/instagram";
+import { wsrvLoader } from "@/lib/image-loader";
 import styles from "./tile-grid.module.css";
 
 export function TileGrid({ tiles }: { tiles: IgTile[] }) {
@@ -105,7 +106,11 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
                 fill
                 sizes="(max-width: 599px) 50vw, (max-width: 819px) 33vw, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, (max-width: 1599px) 20vw, (max-width: 2559px) 16vw, 14vw"
                 className={styles.image}
-                unoptimized
+                /*
+                 * wsrv.nl 経由で WebP + width 指定に resize して DL。
+                 * unoptimized は外し、Next の srcset 生成に loader を回す。
+                 */
+                loader={wsrvLoader}
                 /*
                  * 先頭 8 枚は最悪ケース (7 列レイアウト = 30" 4K) の 1 行分。
                  * preload リンクを出して初期表示を前倒し、それ以降は default lazy に任せる。
@@ -255,7 +260,11 @@ function Modal({
         ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
-            src={tile.mediaUrl}
+            /*
+             * モーダル画像は高解像度が欲しいので w=1600, q=85 で wsrv に投げる。
+             * we (without enlargement) が効いて元画像が 1080px なら 1080px で返る。
+             */
+            src={wsrvLoader({ src: tile.mediaUrl, width: 1600, quality: 85 })}
             alt=""
             className={styles.modalImage}
             onError={() => setFailed(true)}
