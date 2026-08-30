@@ -110,6 +110,27 @@ button {
 }
 
 /*
+ * SP でリンクをタップした後、browser default の focus outline (青い四角) が
+ * 残り続ける現象を抑える。
+ *   1. -webkit-tap-highlight-color: transparent
+ *      iOS Safari / Android Chrome のタップハイライトを消す。
+ *   2. *:focus:not(:focus-visible) { outline: none }
+ *      キーボードナビ (:focus-visible) 時のみ outline を出す。
+ *      マウス / タッチ経由の :focus では出さない。
+ *      個別コンポーネントで :focus-visible を明示している場所
+ *      (modalHint 等) は影響を受けない。
+ */
+a,
+button,
+[tabindex] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/*
  * BudouX で挿入された <wbr> 位置以外では改行しない。
  * BudouxGlobal は main 内の h1-h4 / p / li / blockquote / td / th を対象にするため、
  * それらに keep-all を掛けて <wbr> 位置以外で切れないようにする。
