@@ -189,10 +189,17 @@ function Modal({
     }
   }, [tile.id]);
 
-  // 開いたらヒントリンクに初期フォーカスを置く
+  /*
+   * 画像 load が完了してヒントリンクが DOM に現れたタイミングでフォーカスを移す。
+   * loaded false のとき (= スピナー表示中) は hint がそもそも render されていないので
+   * focus 対象が無い。onFocusOut / onKeyDown Tab の fallback は
+   * optional chaining で null-safe になっているため、それらは触らない。
+   */
   useEffect(() => {
-    hintRef.current?.focus();
-  }, []);
+    if (loaded) {
+      hintRef.current?.focus();
+    }
+  }, [loaded]);
 
   const onFocusOut = (e: SyntheticEvent) => {
     const evt = e as unknown as { relatedTarget: Node | null };
@@ -315,40 +322,47 @@ function Modal({
             onError={() => setFailed(true)}
           />
         )}
-        <a
-          href={tile.permalink}
-          target="_blank"
-          rel="noreferrer noopener"
-          className={styles.modalHint}
-          ref={hintRef}
-          onClick={(e) => {
-            e.stopPropagation();
-            onClose();
-          }}
-        >
-          Click to open on Instagram
-          <svg
-            className={styles.modalHintIcon}
-            viewBox="0 0 12 12"
-            aria-hidden
-            focusable="false"
+        {/*
+         * ヒントリンクは画像 load 完了時にだけマウント。
+         * スピナーと同時には出さない (UX: 何を click するか分からないうちに
+         * "CLICK TO ..." が並ぶと視線を割く)。
+         */}
+        {loaded && !failed && (
+          <a
+            href={tile.permalink}
+            target="_blank"
+            rel="noreferrer noopener"
+            className={styles.modalHint}
+            ref={hintRef}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+            }}
           >
-            <path
-              d="M4 3h5v5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinecap="square"
-            />
-            <path
-              d="M9 3L3.2 8.8"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinecap="square"
-            />
-          </svg>
-        </a>
+            Click to open on Instagram
+            <svg
+              className={styles.modalHintIcon}
+              viewBox="0 0 12 12"
+              aria-hidden
+              focusable="false"
+            >
+              <path
+                d="M4 3h5v5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="square"
+              />
+              <path
+                d="M9 3L3.2 8.8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="square"
+              />
+            </svg>
+          </a>
+        )}
       </div>
 
       {/* 右送り (Next) — 画像の右サイド */}
