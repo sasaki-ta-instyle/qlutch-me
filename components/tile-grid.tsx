@@ -53,6 +53,24 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
     });
   };
 
+  /*
+   * タイル hover 時にモーダル用 w=1080 の WebP を preload。
+   * 一度発行した URL は同一 tile に対しては再要求しないよう Set で管理して
+   * 無駄な HTTP を作らない。
+   */
+  const preloadedRef = useRef<Set<string>>(new Set());
+  const preloadHiRes = (tile: IgTile) => {
+    if (preloadedRef.current.has(tile.id)) return;
+    preloadedRef.current.add(tile.id);
+    const url = wsrvLoader({
+      src: tile.mediaUrl,
+      width: 1080,
+      quality: 80,
+    });
+    const img = new window.Image();
+    img.src = url;
+  };
+
   // モーダル表示中の body スクロールロック (iOS Safari 対応: position: fixed 方式)
   useEffect(() => {
     if (selectedIndex === null) return;
@@ -98,6 +116,12 @@ export function TileGrid({ tiles }: { tiles: IgTile[] }) {
               type="button"
               className={styles.link}
               onClick={(e) => openModal(tile, e)}
+              /*
+               * pointerenter は mouse / pen / touch すべてカバー。
+               * touch では tap 直前の focus と重なることもあるが実害なし。
+               */
+              onPointerEnter={() => preloadHiRes(tile)}
+              onFocus={() => preloadHiRes(tile)}
               aria-label={`Instagram 投稿を開く（${tile.timestamp}）`}
             >
               <Image
@@ -261,10 +285,12 @@ function Modal({
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             /*
-             * モーダル画像は高解像度が欲しいので w=1600, q=85 で wsrv に投げる。
-             * we (without enlargement) が効いて元画像が 1080px なら 1080px で返る。
+             * Instagram のオリジナルは 1080px 上限。w=1600 は wsrv の we で
+             * 結局 1080 に丸められるだけなので、ここで w=1080 に揃える。
+             * これでタイル grid が Retina 用に 1080 版を srcset に持っていたら
+             * ブラウザキャッシュ命中し得る。q=80 に統一（tile grid loader と同じ）。
              */
-            src={wsrvLoader({ src: tile.mediaUrl, width: 1600, quality: 85 })}
+            src={wsrvLoader({ src: tile.mediaUrl, width: 1080, quality: 80 })}
             alt=""
             className={styles.modalImage}
             onError={() => setFailed(true)}
