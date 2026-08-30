@@ -171,11 +171,22 @@ function Modal({
   onNext: () => void;
 }) {
   const hintRef = useRef<HTMLAnchorElement | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);
   const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
-  // タイル切り替え時に failed をリセット
+  // タイル切り替え時に failed / loaded をリセット
   useEffect(() => {
     setFailed(false);
+    setLoaded(false);
+    /*
+     * ブラウザキャッシュに既に載っている画像は onLoad が発火しないことがあるので、
+     * mount 直後に img.complete をチェックして loaded を立てる。
+     */
+    const img = imgRef.current;
+    if (img?.complete && img.naturalWidth > 0) {
+      setLoaded(true);
+    }
   }, [tile.id]);
 
   // 開いたらヒントリンクに初期フォーカスを置く
@@ -275,6 +286,12 @@ function Modal({
         </svg>
       </button>
 
+      {/*
+       * 読み込み中スピナー。overlay に対して absolute center。
+       * failed / loaded どちらでもない = 読み込み中に限り表示。
+       */}
+      {!failed && !loaded && <div className={styles.spinner} aria-hidden />}
+
       <div className={styles.modalContent}>
         {failed ? (
           <div className={styles.modalFallback}>
@@ -284,6 +301,7 @@ function Modal({
         ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
+            ref={imgRef}
             /*
              * Instagram のオリジナルは 1080px 上限。w=1600 は wsrv の we で
              * 結局 1080 に丸められるだけなので、ここで w=1080 に揃える。
@@ -293,6 +311,7 @@ function Modal({
             src={wsrvLoader({ src: tile.mediaUrl, width: 1080, quality: 80 })}
             alt=""
             className={styles.modalImage}
+            onLoad={() => setLoaded(true)}
             onError={() => setFailed(true)}
           />
         )}

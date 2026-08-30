@@ -115,6 +115,38 @@
 }
 
 /*
+ * モーダル画像の読み込み中スピナー。overlay に対して absolute center 配置、
+ * 細線リングを 900ms で回して qlutch の細線ミニマルに揃える。
+ * pointer-events: none でクリックを妨げず、pointer-events: none。
+ * 画像 load 後に React 側で unmount される想定なので disappearance animation は無し。
+ */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  animation: spin 900ms linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes spin {
+  to { rotate: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    /* 動きを減らす設定でも回さないと "止まっているの?" になるので、ゆっくり (2s) 回す。 */
+    animation-duration: 2000ms;
+  }
+}
+
+/*
  * モーダル左右の画像送りボタン (Prev / Next)。ビューポート左右端、垂直中央に固定。
  * 24px chevron、白 50% → hover / focus で白へ。stopPropagation で背景 close を吸わない。
  */
